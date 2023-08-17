@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>식당 소개 페이지 </title>
@@ -30,7 +30,7 @@
             </thead>
             <tbody>
                 <!--* csv_data는 view에서 정의된 리스트  -->
-                {% for row in csv_data %} 
+                <!-- {% for row in csv_data %} 
                 <tr>
                     <td>{{ row.food_name }}</td>
                     <td>{{ row.codezip }}</td>
@@ -45,4 +45,189 @@
 
     </form>
 </body>
+</html>  -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Savior : 식당추천</title>
+        <link rel="stylesheet" href="{% static 'css/recommend.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="background"></div>
+            <header class="hd">
+                <div class="hd-back">
+                  <img
+                    src="{% static 'image/nav/back.svg' %}"
+                    style="height: 30px"
+                    onclick="goBack()"
+                  />
+                </div>
+                <div class="hd-logo">
+                  <img src="{% static 'image/savior.png' %}" />
+                </div>
+                <div class="hd-profile">
+                  <a href=""> <img src="{% static 'image/nav/user_color.png' %}" /></a>
+                </div>
+              </header>
+
+            <div class="inform">
+                <div class="title">
+                    <p>식당 추천</p>
+                </div>
+            </div>
+
+            <section class="sec">
+                <div id="input-unit">
+                    <!-- changeCountry -->
+                    <select name="country" id="input-dropdown">
+                        <option disabled value="./image/icon/selected.png">
+                            나라 선택
+                        </option>
+                        <option
+                            selected
+                            value="./image/icon/yen.png"
+                            value2="Japan"
+                        >
+                            Japan
+                        </option>
+                        <option
+                            value="./image/icon/dollar.png"
+                            value2="America"
+                        >
+                            America
+                        </option>
+                        <option value="./image/icon/dong.png" value2="Vietnam">
+                            Vietnam
+                        </option>
+                    </select>
+                </div>
+                <form class="choice">
+
+                    <form method="post" action="{% url 'savior:recommend_japan' %}">
+                        {% csrf_token %}
+                        <!-- <label for="user_input_search_j">입력받는 변수 이름 user_input_search_j 입니다. 이를 작성하세요:</label>  -->
+
+                        <input type="text" id="user_input_search_j" name="user_input_search_j" required>
+                        <button type="submit" id="search">Search</button> </br></br></br>
+
+
+                    <!-- <input
+                        type="search"
+                        placeholder="pizza"
+                        class="country"
+                        id="btn_1"
+                    /> -->
+
+                </form>
+                <div class="review">
+                    <div type="button" onclick="" id="box">
+                        <!--가게사진-->
+                        <img src="./image/price/foods/japan/udon.png" />
+                        <!--가게이름, 별점-->
+                        <div class="place">
+                            DSBOB <img src="./image/icon/star-fill.svg" /><img
+                                src="./image/icon/star-fill.svg"
+                            /><img src="./image/icon/star-fill.svg" /><img
+                                src="./image/icon/star-fill.svg"
+                            /><img src="./image/icon/star-line.svg" />
+                        </div>
+                        <!--가게 위치-->
+                        <div class="place">
+                            <img src="./image/icon/location.svg" /> DOBONG-DU
+                            SAMYANG-RO
+                        </div>
+                    </div>
+
+                    <div type="button" onclick="" id="box">
+                        <!--가게사진-->
+                        <img src="./image/price/foods/japan/udon.png" />
+                        <!--가게이름, 별점-->
+                        <div class="place">
+                            DSBOB <img src="./image/icon/star-fill.svg" /><img
+                                src="./image/icon/star-fill.svg"
+                            /><img src="./image/icon/star-fill.svg" /><img
+                                src="./image/icon/star-fill.svg"
+                            /><img src="./image/icon/star-line.svg" />
+                        </div>
+                        <!--가게 위치-->
+                        <div class="place">
+                            <img src="./image/icon/location.svg" /> DOBONG-DU
+                            SAMYANG-RO
+                        </div>
+                    </div>
+
+                    <div type="button" onclick="" id="box">
+                        <!--가게사진-->
+                        <img src="./image/price/foods/japan/udon.png" />
+                        <!--가게이름, 별점-->
+                        <div class="place">
+                            DSBOB <img src="./image/icon/star-fill.svg" /><img
+                                src="./image/icon/star-fill.svg"
+                            /><img src="./image/icon/star-fill.svg" /><img
+                                src="./image/icon/star-fill.svg"
+                            /><img src="./image/icon/star-line.svg" />
+                        </div>
+                        <!--가게 위치-->
+                        <div class="place">
+                            <img src="./image/icon/location.svg" /> DOBONG-DU
+                            SAMYANG-RO
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal_background"></div>
+
+                <div class="modal_wrap">
+                    <div class="modal_close">
+                        <img src="../image/icon/close.png" />
+                    </div>
+                    <div class="modal_text">
+                        <div class="modal_logo">
+                            <img src="./image/savior.png" />
+                        </div>
+
+                        <div class="modal_content">
+                            <div class="modal_mention">
+                                <p>국가를 선택해주세요</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <navigation class="nav">
+                <a href="{% url 'savior:japan_exchange' %}"
+                  ><img src="{% static 'image/nav/money.svg' %}"
+                /></a>
+                <a href="{% url 'savior:recommend_japan' %}"
+                  ><img src="{% static 'image/nav/eat.png' %}"
+                /></a>
+                <a href="{% url 'savior:main' %}"
+                  ><img
+                    src="{% static 'image/nav/pin_color.png' %}"
+                    style="height: 45px"
+                /></a>
+                <a href="{% url 'savior:japan_pricelist' %}"
+                  ><img src="{% static 'image/nav/tag_color.png' %}"
+                /></a>
+                <a href="{% url 'savior:community' %}"
+                  ><img src="{% static 'image/nav/edit-message.png' %}"
+                /></a>
+              </navigation>
+        </div>
+
+        <script src="./js/go-back.js"></script>
+        <script src="./js/go-back-nonclick.js"></script>
+    </body>
 </html>
