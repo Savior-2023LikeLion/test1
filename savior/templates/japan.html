@@ -1,10 +1,7 @@
-{% extends 'base.html' %} {% load static %} {% block title %}일본{% endblock %}
-{% block extra-style %}
+{% extends 'base.html' %} {% load static %} {% block title %}일본{% endblock %} {% block extra-style %}
 <link rel="stylesheet" href="{% static 'css/japan_functions.css' %}" />
 {% endblock %} {% block back %}
-<a href="{% url 'savior:main' %}"
-  ><img src="{% static 'image/nav/back.svg' %}" style="height: 30px"
-/></a>
+<a href="{% url 'savior:main' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
 {% endblock %} {% block content %}
 <section class="sec">
   <div class="title">
@@ -121,7 +118,7 @@
           <p>의류</p>
         </div>
       </a>
-      <a href="{% url 'savior:japan_foods' %}">
+      <a href="{% url 'savior:recommend_japan' %}">
         <div class="foods">
           <img src="{% static 'image/icon/food.svg' %}" />
           <p>음식</p>

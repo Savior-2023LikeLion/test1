@@ -1,38 +1,29 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Savior : 시세</title>
-        <link rel="stylesheet" href="{% static 'css/pricelist.css' %}" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <div class="container">
-            <div class="background"></div>
-            <header class="hd">
-                <div class="hd-back">
-                    <img
-                        src="{% static 'image/nav/back.svg' %}"
-                        style="height: 30px"
-                        onclick="goBack()"
-                    />
-                </div>
-                <div class="hd-logo">
-                    <img src="{% static 'image/savior.png' %}" />
-                </div>
-                <div class="hd-profile">
-                    <a href="">
-                        <img src="{% static 'image/nav/user_color.png' %}"
-                    /></a>
-                </div>
-            </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savior : 시세</title>
+    <link rel="stylesheet" href="{% static 'css/pricelist.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Judson&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="background"></div>
+      <header class="hd">
+        <div class="hd-back">
+          <img src="{% static 'image/nav/back.svg' %}" style="height: 30px" onclick="goBack()" />
+        </div>
+        <div class="hd-logo">
+          <img src="{% static 'image/savior.png' %}" />
+        </div>
+        <div class="hd-profile">
+          <a href=""> <img src="{% static 'image/nav/user_color.png' %}" /></a>
+        </div>
+      </header>
 
             <div class="inform">
                 <div class="title">
@@ -40,74 +31,43 @@
                 </div>
             </div>
 
-            <section class="sec">
-                <div class="choose">
-                    <form action="{% url 'savior:pricelist' %}" method="POST">
-                        {% csrf_token %}
-                        <!-- changeCountry -->
-                        <select name="country" id="input-dropdown">
-                            <option disabled value="">국가 선택</option>
-                            <option value="japan">Japan</option>
-                            <option selected value="USA">USA</option>
-                            <option value="vietnam">Vietnam</option>
-                        </select>
-                        <input
-                            type="submit"
-                            value="선택"
-                            id="choose-btn"
-                            style="opacity: 1"
-                        />
-                    </form>
-                </div>
-
-                <div class="pricebtn">
-                    <button type="button" onclick="" class="buttons">
-                        <img src="{% static 'image/icon/cloth.png' %}" /><span
-                            ><a href="{% url 'savior:USA_clothes' %}"
-                                >의류</a
-                            ></span
-                        >
-                    </button>
-                    <button type="button" onclick="" class="buttons">
-                        <img src="{% static 'image/icon/food.svg' %}" /><span
-                            ><a href="{% url 'savior:USA_foods' %}"
-                                >음식</a
-                            ></span
-                        >
-                    </button>
-                    <button type="button" onclick="" class="buttons">
-                        <img
-                            src="{% static 'image/icon/gift-card.png' %}"
-                        /><span
-                            ><a href="{% url 'savior:USA_others' %}"
-                                >잡화</a
-                            ></span
-                        >
-                    </button>
-                </div>
-            </section>
-
-            <navigation class="nav">
-                <a href="{% url 'savior:exchange' %}"
-                    ><img src="{% static 'image/nav/money.svg' %}"
-                /></a>
-                <a href="{% url 'savior:recommend' %}"
-                    ><img src="{% static 'image/nav/eat.png' %}"
-                /></a>
-                <a href="{% url 'savior:map' %}"
-                    ><img
-                        src="{% static 'image/nav/pin_color.png' %}"
-                        style="height: 45px"
-                /></a>
-                <a href="{% url 'savior:pricelist' %}"
-                    ><img src="{% static 'image/nav/tag_color.png' %}"
-                /></a>
-                <a href="{% url 'savior:community' %}"
-                    ><img src="{% static 'image/nav/edit-message.png' %}"
-                /></a>
-            </navigation>
+      <section class="sec">
+        <div class="choose">
+          <form action="{% url 'savior:pricelist' %}" method="POST">
+            {% csrf_token %}
+            <!-- changeCountry -->
+            <select name="country" id="input-dropdown">
+              <option disabled value="">국가 선택</option>
+              <option value="japan">Japan</option>
+              <option selected value="USA">USA</option>
+              <option value="vietnam">Vietnam</option>
+            </select>
+            <input type="submit" value="선택" id="choose-btn" style="opacity: 1" />
+          </form>
         </div>
-        <script src="{% static 'js/go-back.js' %}"></script>
-        <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-    </body>
+
+        <div class="pricebtn">
+          <button type="button" onclick="" class="buttons">
+            <img src="{% static 'image/icon/cloth.png' %}" /><span><a href="{% url 'savior:USA_clothes' %}">의류</a></span>
+          </button>
+          <button type="button" onclick="" class="buttons">
+            <img src="{% static 'image/icon/food.svg' %}" /><span><a href="{% url 'savior:USA_foods' %}">음식</a></span>
+          </button>
+          <button type="button" onclick="" class="buttons">
+            <img src="{% static 'image/icon/gift-card.png' %}" /><span><a href="{% url 'savior:USA_others' %}">잡화</a></span>
+          </button>
+        </div>
+      </section>
+
+      <navigation class="nav">
+        <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
+        <a href="{% url 'savior:recommend' %}"><img src="{% static 'image/nav/eat.png' %}" /></a>
+        <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px" /></a>
+        <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
+        <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
+      </navigation>
+    </div>
+    <script src="{% static 'js/go-back.js' %}"></script>
+    <script src="{% static 'js/go-back-nonclick.js' %}"></script>
+  </body>
 </html>

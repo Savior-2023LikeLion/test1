@@ -714,3 +714,14 @@ def Vietnam_restaurant(request):
         # return render(request, 'recommend_restaurant.html', context)
 
     return render(request, 'Vietnam_restaurant_list.html')
+
+def recommend(request):
+    if request.method == 'POST':
+        country = request.POST.get('country')
+        if country=='japan':
+            return redirect('savior:recommend_japan')
+        elif country=='USA':
+            return redirect('savior:recommend_USA')
+        else:
+            return redirect('savior:recommend_vietnam')
+    return render(request, 'recommend.html')

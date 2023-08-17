@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.main , name='main'),
     path('pricelist/', views.pricelist , name='pricelist'),
     path('exchange/', views.exchange , name='exchange'),
+    path('recommend/', views.recommend , name='recommend'),
     path('map/', views.map , name='map'),
     path('intro/', views.intro , name='intro'),
 
@@ -67,7 +68,7 @@ urlpatterns = [
     path('community_delete/<int:id>', views.community_delete, name='community_delete'),
 
     #* 식당 추천 
-    path('recommend/', views.recommend_restaurant, name='recommend'),
+    path('recommend_USA/', views.recommend_restaurant, name='recommend_USA'),
     path('recommend_japan/', views.Japan_restaurant, name='recommend_japan'),
     path('recommend_vietnam/', views.Vietnam_restaurant, name='recommend_vietnam'),
 

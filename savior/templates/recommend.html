@@ -1,0 +1,116 @@
+{% extends 'base.html' %} {% load static %} {% block title %}식당추천{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/recommend.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:main' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>식당 추천</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="choose">
+    <form action="{% url 'savior:recommend' %}" method="POST">
+      {% csrf_token %}
+      <!-- changeCountry -->
+      <select name="country" id="input-dropdown">
+        <option selected disabled value="">국가 선택</option>
+        <option value="japan">Japan</option>
+        <option value="USA">USA</option>
+        <option value="vietnam">Vietnam</option>
+      </select>
+      <input type="submit" value="선택" id="choose-btn" />
+    </form>
+  </div>
+
+  <div class="modal_background"></div>
+
+  <div class="modal_wrap">
+    <div class="modal_close">
+      <img src="{% static 'image/icon/close.png' %}" />
+    </div>
+    <div class="modal_text">
+      <div class="modal_logo">
+        <img src="{% static 'image/savior.png' %}" />
+      </div>
+
+      <div class="modal_content">
+        <div class="modal_mention">
+          <p>국가를 선택해주세요</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %} {% block extra-script %}
+<script>
+  const modal_wrap = document.querySelector(".modal_wrap");
+  const modal_background = document.querySelector(".modal_background");
+
+  function close() {
+    modal_wrap.classList.remove("show-modal");
+    modal_background.classList.remove("show-modal");
+  }
+  function open() {
+    modal_wrap.classList.add("show-modal");
+    modal_background.classList.add("show-modal");
+  }
+
+  //모달창 보여주는 이벤트 리스너
+
+  document.querySelector("#btn_1").addEventListener("click", () => {
+    console.log("btn_1");
+    open();
+  });
+  document.querySelector("#btn_2").addEventListener("click", () => {
+    open();
+  });
+
+  //닫기 버튼눌러서 모달창 지우는 이벤트 리스너
+  document.querySelector(".modal_close").addEventListener("click", () => {
+    close();
+  });
+
+  //모달창 바깥부분 눌러서 모달창 닫는 이벤트 리스너
+  window.addEventListener("click", (e) => {
+    e.target === modal_background ? close() : false;
+  });
+</script>
+<script>
+  // 이전 페이지로 이동하는 함수
+  function goBack() {
+    window.history.back();
+  }
+
+  // 뒤로가기 버튼 클릭 시 이벤트 처리
+  var backButton = document.getElementById("back");
+  backButton.addEventListener("click", goBack);
+
+  // 스와이프 동작 감지를 위한 변수 설정
+  var touchStartX = 0;
+  var touchEndX = 0;
+
+  // 터치 시작 위치 저장
+  window.addEventListener("touchstart", function (event) {
+    touchStartX = event.changedTouches[0].screenX;
+  });
+
+  // 터치 종료 위치 저장 및 스와이프 동작 확인
+  window.addEventListener("touchend", function (event) {
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  // 스와이프 동작 처리
+  function handleSwipe() {
+    var swipeDistance = touchEndX - touchStartX;
+    var minSwipeDistance = 100; // 최소한으로 인식할 스와이프 거리
+
+    if (swipeDistance >= minSwipeDistance) {
+      goBack();
+    }
+  }
+</script>
+{% endblock %}

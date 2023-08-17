@@ -1,10 +1,7 @@
-{% extends 'base.html' %} {% load static %} {% block title %}미국{% endblock %}
-{% block extra-style %}
+{% extends 'base.html' %} {% load static %} {% block title %}미국{% endblock %} {% block extra-style %}
 <link rel="stylesheet" href="{% static 'css/usa_functions.css' %}" />
 {% endblock %} {% block back %}
-<a href="{% url 'savior:main' %}"
-  ><img src="{% static 'image/nav/back.svg' %}" style="height: 30px"
-/></a>
+<a href="{% url 'savior:main' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
 {% endblock %} {% block content %}
 <section class="sec">
   <div class="title">
@@ -89,7 +86,7 @@
       </div>
     </div>
     <!-- 식당 추천 -->
-    <a href="{% url 'savior:recommend' %}">
+    <a href="{% url 'savior:recommend_USA' %}">
       <div class="inform-rest">
         <div class="rest-title">
           <img src="{% static 'image/icon/eat_black.png' %}" />
@@ -116,7 +113,7 @@
           <p>의류</p>
         </div>
       </a>
-      <a href="{% url 'savior:USA_foods' %}">
+      <a href="{% url 'savior:recommend_USA' %}">
         <div class="foods">
           <img src="{% static 'image/icon/food.svg' %}" />
           <p>음식</p>
