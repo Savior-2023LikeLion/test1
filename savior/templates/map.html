@@ -1,82 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Savior : Map</title>
-        <script defer src="{% static 'js/map.js' %}"></script>
-        <script
-            defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0F3CbRAi8ZqT2RJ8rDa1YrZcU5SBr4EI&callback=initMap&libraries=places"
-        ></script>
-        <link rel="stylesheet" href="{% static 'css/map.css' %}" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
-            rel="stylesheet"
-        />
-    </head>
-    <body>
-        <div class="container">
-            <div class="background"></div>
-            <header class="hd">
-                <div class="hd-back">
-                    <img
-                        src="{% static 'image/nav/back.svg' %}"
-                        style="height: 30px"
-                        onclick="goBack()"
-                    />
-                </div>
-                <div class="hd-logo">
-                    <img src="{% static 'image/savior.png' %}" />
-                </div>
-                <div class="hd-profile">
-                    <a href="">
-                        <img src="{% static 'image/nav/user_color.png' %}"
-                    /></a>
-                </div>
-            </header>
-
-            <section class="sec">
-                <div class="search">
-                    <input
-                        id="pac-input"
-                        class="controls"
-                        type="text"
-                        placeholder="Search Box"
-                    /><button>
-                        <img
-                            src="{% static 'image/icon/scope.png' %}"
-                            alt="."
-                        />
-                    </button>
-                </div>
-                <div id="map" style="height: 90%"></div>
-            </section>
-
-            <navigation class="nav">
-                <a href="{% url 'savior:exchange' %}"
-                    ><img src="{% static 'image/nav/money.svg' %}"
-                /></a>
-                <a href="{% url 'savior:recommend' %}"
-                    ><img src="{% static 'image/nav/eat.png' %}"
-                /></a>
-                <a href="{% url 'savior:map' %}"
-                    ><img
-                        src="{% static 'image/nav/pin_color.png' %}"
-                        style="height: 45px"
-                /></a>
-                <a href="{% url 'savior:pricelist' %}"
-                    ><img src="{% static 'image/nav/tag_color.png' %}"
-                /></a>
-                <a href="{% url 'savior:community' %}"
-                    ><img src="{% static 'image/nav/edit-message.png' %}"
-                /></a>
-            </navigation>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savior : Map</title>
+    <script defer src="{% static 'js/map.js' %}"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0F3CbRAi8ZqT2RJ8rDa1YrZcU5SBr4EI&callback=initMap&libraries=places"></script>
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Judson&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="background"></div>
+      <header class="hd">
+        <div class="hd-back">
+          <img src="{% static 'image/nav/back.svg' %}" style="height: 30px" onclick="goBack()" />
         </div>
-        <script src="{% static 'js/go-back.js' %}"></script>
-        <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-    </body>
+        <div class="hd-logo">
+          <img src="{% static 'image/savior.png' %}" />
+        </div>
+        <div class="hd-profile">
+          <a href=""> <img src="{% static 'image/nav/user_color.png' %}" /></a>
+        </div>
+      </header>
+
+      <section class="sec">
+        <div class="search">
+          <input id="pac-input" class="controls" type="text" placeholder="Search Box" /><button>
+            <img src="{% static 'image/icon/scope.png' %}" alt="." />
+          </button>
+        </div>
+        <div id="map" style="height: 90%"></div>
+      </section>
+
+      <navigation class="nav">
+        <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
+        <a href="{% url 'savior:recommend' %}"><img src="{% static 'image/nav/eat.png' %}" /></a>
+        <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px" /></a>
+        <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
+        <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
+      </navigation>
+    </div>
+    <script>
+      const japanPageUrl = "{% url 'savior:japan' %}";
+      const USAPageUrl = "{% url 'savior:USA' %}";
+      const vietnamPageUrl = "{% url 'savior:vietnam' %}";
+    </script>
+    <script src="{% static 'js/go-back.js' %}"></script>
+    <script src="{% static 'js/go-back-nonclick.js' %}"></script>
+  </body>
 </html>
