@@ -1,45 +1,8 @@
-<!DOCTYPE html>
-<html lang="kor">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savoir : {% block title %}vietnam_foods{% endblock %}</title>
-    {% load static %} {% block extra-style %}{% endblock %}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'js/heart.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/japan.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-
-  <body>
-    <div class="container">
-      <div class="background"></div>
-      <header class="hd">
-        <div class="hd-back">
-          {% block back %}
-          <a href="{% url 'savior:vietnam' %}"
-            ><img
-              src="{% static 'image/nav/back.svg' %}"
-              style="height: 30px" /></a
-          >{%endblock %}
-        </div>
-        <div class="hd-logo">
-          <img src="{% static 'image/savior.png' %}" />
-        </div>
-        <div class="hd-profile">
-          <a href="{% url 'savior:mypage' %}">
-            <img src="{% static 'image/nav/user_color.png' %}"
-          /></a>
-        </div>
-      </header>
-
-      {% block content %}
-
+{% extends 'base.html' %} {% load static %} {% block title %}베트남 - 음식{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/japan.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:japan' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
       <div class="inform">
         <!-- 품목 -->
         <div class="title">
@@ -78,7 +41,7 @@
               <div class="item-info">
                 <a href="{% url 'savior:recommend_vietnam'  %}">{{ foods.0.vietnam_foods }}</a>
                 <div class="item">
-                  <img class="heart-image" src="{% static 'image/icon/heart-outline.svg' %}">
+                  <img class="heart-image" src="{% static 'image/icon/heart.svg' %}">
                 </div>
               </div>
             </div>
@@ -109,7 +72,7 @@
               <div class="item-info">
                 <a href="{% url 'savior:recommend_vietnam' %}">{{ foods.2.vietnam_foods }}</a>
                 <div class="heart" onclick="toggleHeartImage()">
-                  <img src="{% static 'image/icon/heart-outline.svg' %}" />
+                  <img src="{% static 'image/icon/heart.svg' %}" />
                 </div>
               </div>
             </div>
@@ -120,37 +83,4 @@
 
         <div class="add-button"><a href="#">+</a></div>
       </section>
-      {% endblock %}
-
-      <navigation class="nav">
-        <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
-        <a href="#"><img src="{% static 'image/nav/eat.png' %}" /></a>
-        <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px"/></a>
-        <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
-        <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
-      </navigation>
-    </div>
-
-    <script src="{% static 'js/go-back.js' %}"></script>
-    <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-    
-    <!--
-    <a href="{% url 'savior:vietnam' %}">뒤로가기</a><br>
-    <a href="{% url 'savior:mypage' %}">마이페이지</a><br><br>
-
-    베트남 음식<br><br>
-    
-    <div>
-        <form method="GET">
-            <input type="text" autocomplete="off" name="keyword">
-            <button type="submit">검색</button>
-        </form>
-    </div><br><br>
-
-    {% for food in foods %}
-        <div>
-            <a href="{% url 'savior:vietnam_foods_detail' food.pk %}">{{ food.vietnam_foods }}</a><br>
-        </div>
-    {% endfor %}-->
-  </body>
-</html>
+{% endblock %} {% block extra-script %} {% endblock %}

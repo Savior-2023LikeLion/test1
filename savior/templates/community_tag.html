@@ -1,85 +1,109 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savior : 자유게시판</title>
-    <link rel="stylesheet" href="{% static 'css/community.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Judson&display=swap" rel="stylesheet"/>
-</head>
-<body>
-    <div class="container">
-        <div class="background"></div>
-        <header class="hd">
-            <div class="hd-back">
-                <img
-                    src="{% static 'image/nav/back.svg' %}"
-                    style="height: 30px"
-                    onclick="goBack()"
-                />
-            </div>
-            <div class="hd-logo">
-                <img src="{% static 'image/savior.png' %}" />
-            </div>
-            <div class="hd-profile">
-                <a href=""> <img src="{% static 'image/nav/user_color.png' %}" /></a>
-            </div>
-        </header>
-
-        <div class="inform">
-            <div class="title">
-            <p>자유게시판</p>
-            </div>
-        </div>
-
-        <section class="sec">
-            <div class="choice">
-                <div class="country">
-                    <span>#{{ tag_name }}</span>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Savior : 자유게시판</title>
+        <link rel="stylesheet" href="{% static 'css/community.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="background"></div>
+            <header class="hd">
+                <div class="hd-back">
+                    <img
+                        src="{% static 'image/nav/back.svg' %}"
+                        style="height: 30px"
+                        onclick="goBack()"
+                    />
                 </div>
-                <div class="country">
-                    <span>게시물 수: {{ posts.count }}</span>
+                <div class="hd-logo">
+                    <img src="{% static 'image/savior.png' %}" />
+                </div>
+                <div class="hd-profile">
+                    <a href="">
+                        <img src="{% static 'image/nav/user_color.png' %}"
+                    /></a>
+                </div>
+            </header>
+
+            <div class="inform">
+                <div class="title">
+                    <p>자유게시판</p>
                 </div>
             </div>
 
-            {% for post in posts %}
-            <div class="list">
-                <div class="box">
-                    <div class="picbox">
-                        {% if post.thumbnail %}
-                            <img src="{{post.thumbnail.url}}" alt="" />
-                        {% endif %}
+            <section class="sec">
+                <div class="choice">
+                    <div class="country">
+                        <span>#{{ tag_name }}</span>
                     </div>
-                    <div class="writebox">
-                        <p><a href="{% url 'savior:community_detail' post.pk %}">{{post.title}}</a></p>
-                        <div class="list_user">
-                            <div class="heart">
-                                <img src="{% static 'image/icon/heart-outline.svg' %}" />
-                                <span>{{ post.like_users.count }}</span>
+                    <div class="country">
+                        <span>게시물 수: {{ posts.count }}</span>
+                    </div>
+                </div>
+
+                {% for post in posts %}
+                <div class="list">
+                    <div class="box">
+                        <div class="picbox">
+                            {% if post.thumbnail %}
+                            <img src="{{post.thumbnail.url}}" alt="" />
+                            {% endif %}
+                        </div>
+                        <div class="writebox">
+                            <p>
+                                <a
+                                    href="{% url 'savior:community_detail' post.pk %}"
+                                    >{{post.title}}</a
+                                >
+                            </p>
+                            <div class="list_user">
+                                <div class="heart">
+                                    <img
+                                        src="{% static 'image/icon/heart-outline.svg' %}"
+                                    />
+                                    <span>{{ post.like_users.count }}</span>
+                                </div>
+                                <span>{{ post.user.username }}</span>
                             </div>
-                            <span>{{ post.user.username }}</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
-            <!-- <div class="btn_write">
+                {% endfor %}
+                <!-- <div class="btn_write">
                 <a href="{% url 'savior:community_post' %}"><button type="button" onclick="" id="btn">글쓰기</button></a>
             </div> -->
-        </section>
+            </section>
 
-        <navigation class="nav">
-            <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
-            <a href="#"><img src="{% static 'image/nav/eat.png' %}" /></a>
-            <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px"/></a>
-            <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
-            <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
-        </navigation>
-    </div>
-    <script src="{% static 'js/go-back.js' %}"></script>
-    <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-</body>
+            <navigation class="nav">
+                <a href="{% url 'savior:exchange' %}"
+                    ><img src="{% static 'image/nav/money.svg' %}"
+                /></a>
+                <a href="{% url 'savior:recommend' %}"
+                    ><img src="{% static 'image/nav/eat.png' %}"
+                /></a>
+                <a href="{% url 'savior:map' %}"
+                    ><img
+                        src="{% static 'image/nav/pin_color.png' %}"
+                        style="height: 45px"
+                /></a>
+                <a href="{% url 'savior:pricelist' %}"
+                    ><img src="{% static 'image/nav/tag_color.png' %}"
+                /></a>
+                <a href="{% url 'savior:community' %}"
+                    ><img src="{% static 'image/nav/edit-message.png' %}"
+                /></a>
+            </navigation>
+        </div>
+        <script src="{% static 'js/go-back.js' %}"></script>
+        <script src="{% static 'js/go-back-nonclick.js' %}"></script>
+    </body>
 </html>

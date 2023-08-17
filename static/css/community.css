@@ -133,7 +133,7 @@ p {
 /* section */
 .sec {
   height: calc(100vh - 58px - 66px - 53px);
-  overflow-y: visible;
+  overflow-y: auto;
 }
 
 .sec::-webkit-scrollbar {
@@ -172,6 +172,7 @@ p {
 .box {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   border: 2px;
   margin: 20px;
   padding: 10px;
@@ -182,7 +183,10 @@ p {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  margin-right: 5px;
+}
+
+.writebox {
+  width: 300px;
 }
 
 .writebox > p {
@@ -232,4 +236,22 @@ p {
   #btn {
     width: calc(430px * 0.5);
   }
+}
+
+/*a태그 색상화이트*/
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+a:active {
+  color: black;
+  text-decoration: none;
 }

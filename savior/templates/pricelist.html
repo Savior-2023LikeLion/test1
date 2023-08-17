@@ -1,112 +1,60 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savior : 시세</title>
-    <link rel="stylesheet" href="{% static 'css/pricelist.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="background"></div>
-      <header class="hd">
-        <div class="hd-back">
-          <img
-            src="{% static 'image/nav/back.svg' %}"
-            style="height: 30px"
-            onclick="goBack()"
-          />
-        </div>
-        <div class="hd-logo">
-          <img src="{% static 'image/savior.png' %}" />
-        </div>
-        <div class="hd-profile">
-          <a href="{% url 'savior:mypage' %}"> <img src="{% static 'image/nav/user_color.png' %}" /></a>
-        </div>
-      </header>
+{% extends 'base.html' %} {% load static %} {% block title %}시세{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/pricelist.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:main' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>주요 물품의 시세</p>
+  </div>
+</div>
 
-      <div class="inform">
-        <div class="title">
-          <p>주요 물품의 시세</p>
-        </div>
+<section class="sec">
+  <div class="choose">
+    <form action="{% url 'savior:pricelist' %}" method="POST">
+      {% csrf_token %}
+      <!-- changeCountry -->
+      <select name="country" id="input-dropdown">
+        <option selected disabled value="">국가 선택</option>
+        <option value="japan">Japan</option>
+        <option value="USA">USA</option>
+        <option value="vietnam">Vietnam</option>
+      </select>
+      <input type="submit" value="선택" id="choose-btn" />
+    </form>
+  </div>
+
+  <div class="pricebtn">
+    <button type="button" onclick="" class="buttons" id="btn_1"><img src="{% static 'image/icon/cloth.png' %}" /><span>의류</span></button>
+    <button type="button" onclick="" class="buttons" id="btn_2"><img src="{% static 'image/icon/food.svg' %}" /><span>음식</span></button>
+    <button type="button" onclick="" class="buttons" id="btn_3"><img src="{% static 'image/icon/gift-card.png' %}" /><span>잡화</span></button>
+  </div>
+
+  <div class="modal_background"></div>
+
+  <div class="modal_wrap">
+    <div class="modal_close">
+      <img src="{% static 'image/icon/close.png' %}" />
+    </div>
+    <div class="modal_text">
+      <div class="modal_logo">
+        <img src="{% static 'image/savior.png' %}" />
       </div>
 
-      <section class="sec">
-        <form action="{% url 'savior:pricelist' %}" method="POST">
-          <div id="input-unit">
-            <!-- changeCountry -->
-            {% csrf_token %}
-            <select name="country" id="input-dropdown">
-              <option selected disabled value="">나라 선택</option>
-              <option value="Japan">
-                <img src="{% static 'image/icon/yen.png' %}" alt="Japan" />
-                Japan
-              </option>
-              <option value="USA">
-                <img src="{% static 'image/icon/dollar.png' %}" alt="USA" />
-                USA
-              </option>
-              <option value="Vietnam">
-                <img src="{% static 'image/icon/dong.png' %}" alt="Vietnam" />
-                Vietnam
-              </option>
-            </select>
-            
-            <input type="submit" value="선택" id="submit_btn" />
-          </div>
-        </form>
-
-        <div class="pricebtn">
-          <button type="button" onclick="" class="buttons" id="btn_1">
-            <img src="{% static 'image/icon/cloth.png' %}" /><span>의류</span>
-          </button>
-          <button type="button" onclick="" class="buttons" id="btn_2">
-            <img src="{% static 'image/icon/food.svg' %}" /><span>음식</span>
-          </button>
-          <button type="button" onclick="" class="buttons" id="btn_3">
-            <img src="{% static 'image/icon/gift-card.png' %}" /><span
-              >잡화</span
-            >
-          </button>
+      <div class="modal_content">
+        <div class="modal_mention">
+          <p>국가를 선택해주세요</p>
         </div>
-
-        <div class="modal_background"></div>
-
-        <div class="modal_wrap">
-          <div class="modal_close">
-            <img src="{% static 'image/icon/close.png' %}" />
-          </div>
-          <div class="modal_text">
-            <div class="modal_logo">
-              <img src="{% static 'image/savior.png' %}" />
-            </div>
-
-            <div class="modal_content">
-              <div class="modal_mention">
-                <p>국가를 선택해주세요</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <navigation class="nav">
-        <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
-        <a href="#"><img src="{% static 'image/nav/eat.png' %}" /></a>
-        <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px"/></a>
-        <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
-        <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
-      </navigation>
+      </div>
     </div>
-    <script src="{% static 'js/modal_country.js' %}"></script>
-    <script src="{% static 'js/go-back.js' %}"></script>
-    <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-  </body>
-</html>
+  </div>
+</section>
+{% endblock %} {% block extra-script %} {% endblock %}
+<script>
+  //드롭다운 클릭 시 선택 버튼 opacity 변경
+  document.querySelector("#input-dropdown").addEventListener("click", () => {
+    console.log("opacity 수정하기~");
+    document.getElementById("choose-btn").style.opacity = "1.0";
+  });
+</script>
+<script src="{% static 'js/modal_country.js' %}"></script>

@@ -1,160 +1,92 @@
-<!DOCTYPE html>
-<html lang="kor">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savoir : {% block title %}japan_others{% endblock %}</title>
-    {% load static %} {% block extra-style %}{% endblock %}
-    <link rel="stylesheet" href="{% static 'css/japan.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+{% extends 'base.html' %} {% load static %} {% block title %}일본 -
+잡화{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/japan.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:japan' %}"
+  ><img src="{% static 'image/nav/back.svg' %}" style="height: 30px"
+/></a>
+{% endblock %} {% block content %}
 
-  <body>
-    <div class="container">
-      <div class="background"></div>
-      <header class="hd">
-        <div class="hd-back">
-          {% block back %}
-          <a href="{% url 'savior:japan' %}"
-            ><img
-              src="{% static 'image/nav/back.svg' %}"
-              style="height: 30px" /></a
-          >{%endblock %}
-        </div>
-        <div class="hd-logo">
-          <img src="{% static 'image/savior.png' %}" />
-        </div>
-        <div class="hd-profile">
-          <a href="{% url 'savior:mypage' %}">
-            <img src="{% static 'image/nav/user_color.png' %}"
-          /></a>
-        </div>
-      </header>
+<div class="inform">
+  <!-- 품목 -->
+  <div class="title">
+    <p>잡화</p>
+  </div>
+  <!-- 나라 태그 -->
+  <div class="tag">
+    <p>Japan</p>
+  </div>
+</div>
 
-      {% block content %}
+<section class="sec">
+  <div>
+    <form method="GET" class="search">
+      <input
+        type="text"
+        autocomplete="off"
+        name="keyword"
+        placeholder="검색어를 입력하세요"
+      />
+      <button type="submit">
+        <img src="{% static 'image/icon/scope.png' %}" alt="." />
+      </button>
+    </form>
+  </div>
 
-      <div class="inform">
-        <!-- 품목 -->
-        <div class="title">
-          <p>잡화</p>
-        </div>
-        <!-- 나라 태그 -->
-        <div class="tag">
-          <p>Japan</p>
+  <div class="items">
+    {% if others %}
+
+    <div class="items-shirts">
+      <a href="{% url 'savior:japan_others_detail' others.0.pk %}">
+        <img
+          src="{% static 'image/price/others/japan/medications.png' %}"
+          alt="."
+      /></a>
+      <div class="item-info">
+        <a href="{% url 'savior:japan_others_detail' others.0.pk %}"
+          >{{ others.0.japan_others }}</a
+        >
+        <div class="heart" onclick="toggleHeartImage(this)">
+          <img src="{% static 'image/icon/heart.svg' %}" />
         </div>
       </div>
-
-      <section class="sec">
-        <div>
-          <form method="GET" class="search">
-            <input
-              type="text"
-              autocomplete="off"
-              name="keyword"
-              placeholder="검색어를 입력하세요"
-            />
-            <button type="submit">
-              <img src="{% static 'image/icon/scope.png' %}" alt="." />
-            </button>
-          </form>
-        </div>
-
-        <div class="items">
-          {% if others %}
-
-          <div class="items-shirts">
-            <a href="{% url 'savior:japan_others_detail' others.0.pk %}">
-              <img
-                src="{% static 'image/price/others/japan/medications.png' %}"
-                alt="."
-            /></a>
-            <div class="item-info">
-              <a href="{% url 'savior:japan_others_detail' others.0.pk %}"
-                >{{ others.0.japan_others }}</a
-              >
-              <div class="heart" onclick="toggleHeartImage(this)">
-                <img src="{% static 'image/icon/heart-outline.svg' %}" />
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <div class="items-pants">
-            <a href="{% url 'savior:japan_others_detail' others.1.pk %}">
-              <img
-                src="{% static 'image/price/others/japan/cosmetic.png' %}"
-                alt="."
-            /></a>
-            <div class="item-info">
-              <a href="{% url 'savior:japan_others_detail' others.1.pk %}"
-                >{{ others.1.japan_others }}</a
-              >
-              <div class="heart" onclick="toggleHeartImage(this)">
-                <img src="{% static 'image/icon/heart-outline.svg' %}" />
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <div class="items-cap">
-            <a href="{% url 'savior:japan_others_detail' others.2.pk %}">
-              <img
-                src="{% static 'image/price/others/japan/doll.png' %}"
-                alt="."
-            /></a>
-            <div class="item-info">
-              <a href="{% url 'savior:japan_others_detail' others.2.pk %}"
-                >{{ others.2.japan_others }}</a
-              >
-              <div class="heart" onclick="toggleHeartImage(this)">
-                <img src="{% static 'image/icon/heart-outline.svg' %}" />
-              </div>
-            </div>
-          </div>
-          <hr />
-          {% endif %}
-        </div>
-
-        <div class="add-button"><a href="#">+</a></div>
-      </section>
-      {% endblock %}
-
-      <navigation class="nav">
-        <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
-        <a href="#"><img src="{% static 'image/nav/eat.png' %}" /></a>
-        <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px"/></a>
-        <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
-        <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
-    </navigation>
     </div>
 
-    <script src="{% static 'js/go-back.js' %}"></script>
-    <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-    <script src="{% static 'js/scrap.js' %}"></script>
+    <hr />
 
-    <!-- <a href="{% url 'savior:japan' %}">뒤로가기</a><br>
-    <a href="{% url 'savior:mypage' %}">마이페이지</a><br><br>
-
-    일본 잡화<br><br>
-    
-    <div>
-        <form method="GET">
-            <input type="text" autocomplete="off" name="keyword">
-            <button type="submit">검색</button>
-        </form>
-    </div><br><br>
-
-    {% for other in others %}
-        <div>
-            <a href="{% url 'savior:japan_others_detail' other.pk %}">{{ other.japan_others }}</a><br>
+    <div class="items-pants">
+      <a href="{% url 'savior:japan_others_detail' others.1.pk %}">
+        <img src="{% static 'image/price/others/japan/cosmetic.png' %}" alt="."
+      /></a>
+      <div class="item-info">
+        <a href="{% url 'savior:japan_others_detail' others.1.pk %}"
+          >{{ others.1.japan_others }}</a
+        >
+        <div class="heart" onclick="toggleHeartImage(this)">
+          <img src="{% static 'image/icon/heart.svg' %}" />
         </div>
-    {% endfor %} -->
-  </body>
-</html>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="items-cap">
+      <a href="{% url 'savior:japan_others_detail' others.2.pk %}">
+        <img src="{% static 'image/price/others/japan/doll.png' %}" alt="."
+      /></a>
+      <div class="item-info">
+        <a href="{% url 'savior:japan_others_detail' others.2.pk %}"
+          >{{ others.2.japan_others }}</a
+        >
+        <div class="heart" onclick="toggleHeartImage(this)">
+          <img src="{% static 'image/icon/heart-outline.svg' %}" />
+        </div>
+      </div>
+    </div>
+    <hr />
+    {% endif %}
+  </div>
+
+  <div class="add-button"><a href="#">+</a></div>
+</section>
+{% endblock %} {% block extra-script %} {% endblock %}

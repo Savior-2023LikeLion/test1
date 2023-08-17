@@ -3,110 +3,155 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savior : 게시글</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Savior : 게시글</title>
 
-    <link rel="stylesheet" href="{% static 'css/communtiy_detail.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Judson&display=swap" rel="stylesheet"/>
-    <style>
-        .thum_img {width: 100px; height: 100px;}
-    </style>
+        <link rel="stylesheet" href="{% static 'css/communtiy_detail.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            .thum_img {
+                width: 100px;
+                height: 100px;
+            }
+        </style>
     </head>
     <body>
-    <div class="container">
-        <div class="background"></div>
-        <header class="hd">
-            <div class="hd-back">
-            <img
-                src="{% static 'image/nav/back.svg' %}"
-                style="height: 30px"
-                onclick="goBack()"
-            />
-        </div>
-        <div class="hd-logo">
-            <img src="{% static 'image/savior.png' %}"/>
-        </div>
-        <div class="hd-profile">
-            <a href="{% url 'savior:mypage' %}"> <img src="{% static 'image/nav/user_color.png' %}"/></a>
-        </div>
-        </header>
-
-        <div class="inform">
-            <div class="title">
-                <p>자유게시판</p>
-            </div>
-        </div>
-
-
-        <section class="sec">
-            <div class="detail">
-                <div class="detail-top">
-                    <div class="writer-info">
-                        <h3>{{ post.user.username }}</h3>
-                        <span>{{post.created}}</span>
-                    </div>
-                    {% if user.is_authenticated and user == post.user %}
-                        <a href="{% url 'savior:community_delete' post.pk %}"><button>삭제</button></a>
-                    {% endif %}<br>
-                    
+        <div class="container">
+            <div class="background"></div>
+            <header class="hd">
+                <div class="hd-back">
+                    <img
+                        src="{% static 'image/nav/back.svg' %}"
+                        style="height: 30px"
+                        onclick="goBack()"
+                    />
                 </div>
-                <h2>{{post.title}}</h2>
-                <p>{{post.content}}</p><br>
+                <div class="hd-logo">
+                    <img src="{% static 'image/savior.png' %}" />
+                </div>
+                <div class="hd-profile">
+                    <a href="{% url 'savior:mypage' %}">
+                        <img src="{% static 'image/nav/user_color.png' %}"
+                    /></a>
+                </div>
+            </header>
 
-                {% if post.thumbnail %}
-                    <img src="{{post.thumbnail.url}}" class="thum_img" alt="사진 자리">
-                {% endif %}<br><br>
+            <div class="inform">
+                <div class="title">
+                    <p>자유게시판</p>
+                </div>
+            </div>
 
-                <form action="{% url 'savior:likes' post.pk %}" method='POST'>
-                    {% csrf_token %}
+            <section class="sec">
+                <div class="detail">
+                    <div class="detail-top">
+                        <div class="writer-info">
+                            <h3>{{ post.user.username }}</h3>
+                            <span>{{post.created}}</span>
+                        </div>
+                        {% if user.is_authenticated and user == post.user %}
+                        <a href="{% url 'savior:community_delete' post.pk %}"
+                            ><button>삭제</button></a
+                        >
+                        {% endif %}<br />
+                    </div>
+                    <h2>{{post.title}}</h2>
+                    <p>{{post.content}}</p>
+                    <br />
+
+                    {% if post.thumbnail %}
+                    <img
+                        src="{{post.thumbnail.url}}"
+                        class="thum_img"
+                        alt="사진 자리"
+                    />
+                    {% endif %}<br /><br />
+
+                    <form
+                        action="{% url 'savior:likes' post.pk %}"
+                        method="POST"
+                    >
+                        {% csrf_token %}
                         <div class="like-button" id="likeButton">
                             {% if user in post.like_users.all %}
-                                <input type="submit" value='취소'>
+                            <input type="submit" value="취소" />
                             {% else %}
-                                <input type="submit" value='좋아요'>
+                            <input type="submit" value="좋아요" />
                             {% endif %}
-                            <span><img src="{% static 'image/icon/heart-outline2.svg' %}" alt="Unliked" data-state="unliked" />{{ post.like_users.count }}</span>
+                            <span
+                                ><img
+                                    src="{% static 'image/icon/heart-outline2.svg' %}"
+                                    alt="Unliked"
+                                    data-state="unliked"
+                                />{{ post.like_users.count }}</span
+                            >
                         </div>
-                </form>
-                <hr>
-            </div>
-            
-            <div class="reples">
-                <div class="reple">
-                    {% for comment in post.comment_set.all %}
-                    <div class="user-info">
-                        <h3>{{ comment.user.username }}</h3>
-                        <span>{{ comment.created }}</span>
-                    </div>
-                    <p>{{ comment.content }}</p><br><br>
-                    <hr>
-                    {% endfor %}
+                    </form>
+                    <hr />
                 </div>
-            </div>
 
-            <form method="POST">
-                {% csrf_token %}
+                <div class="reples">
+                    <div class="reple">
+                        {% for comment in post.comment_set.all %}
+                        <div class="user-info">
+                            <h3>{{ comment.user.username }}</h3>
+                            <span>{{ comment.created }}</span>
+                        </div>
+                        <p>{{ comment.content }}</p>
+                        <br /><br />
+                        <hr />
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <form method="POST">
+                    {% csrf_token %}
                     <div class="add-reples-box">
                         <div class="add-reples">
-                            <input type="text" placeholder="댓글을 작성해주세요." name="comment" class="add-reples-textbox"/>
-                            <input type="submit" value="등록" name="submit" class="button"/>
+                            <input
+                                type="text"
+                                placeholder="댓글을 작성해주세요."
+                                name="comment"
+                                class="add-reples-textbox"
+                            />
+                            <input
+                                type="submit"
+                                value="등록"
+                                name="submit"
+                                class="button"
+                            />
                         </div>
                     </div>
-            </form>
-        </section>
+                </form>
+            </section>
 
-        <navigation class="nav">
-          <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
-          <a href="#"><img src="{% static 'image/nav/eat.png' %}" /></a>
-          <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px"/></a>
-          <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
-          <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
-        </navigation>
-    </div>
-    <script src="{% static 'js/go-back.js' %}"></script>
-    <script src="{% static 'js/go-back-nonclick.js' %}"></script>
+            <navigation class="nav">
+                <a href="{% url 'savior:exchange' %}"
+                    ><img src="{% static 'image/nav/money.svg' %}"
+                /></a>
+                <a href="{% url 'savior:recommend' %}"
+                    ><img src="{% static 'image/nav/eat.png' %}"
+                /></a>
+                <a href="{% url 'savior:map' %}"
+                    ><img
+                        src="{% static 'image/nav/pin_color.png' %}"
+                        style="height: 45px"
+                /></a>
+                <a href="{% url 'savior:pricelist' %}"
+                    ><img src="{% static 'image/nav/tag_color.png' %}"
+                /></a>
+                <a href="{% url 'savior:community' %}"
+                    ><img src="{% static 'image/nav/edit-message.png' %}"
+                /></a>
+            </navigation>
+        </div>
+        <script src="{% static 'js/go-back.js' %}"></script>
+        <script src="{% static 'js/go-back-nonclick.js' %}"></script>
     </body>
 </html>

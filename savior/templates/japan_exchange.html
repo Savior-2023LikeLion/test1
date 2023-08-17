@@ -55,7 +55,7 @@
                             <option value="vietnam">Vietnam</option>
                             
                         </select>
-                        <input type="submit" value="선택" />
+                        <input type="submit" value="선택" id="choose-btn" style="opacity: 1.0;"/>
                     </form>
                                                                 
                 </div>
@@ -126,7 +126,7 @@
 
             <navigation class="nav">
                 <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
-                <a href="#"><img src="{% static 'image/nav/eat.png' %}" /></a>
+                <a href="{% url 'savior:recommend' %}"><img src="{% static 'image/nav/eat.png' %}" /></a>
                 <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px"/></a>
                 <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
                 <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>

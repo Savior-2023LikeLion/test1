@@ -359,3 +359,14 @@ p {
 
     padding: 0 20px;
 }
+
+/* 국가 선택 버튼 */
+#choose-btn {
+    color: white;
+    margin-left: 10px;
+    width: 15%;
+    height: 35px;
+    background-color: #7f6044;
+    opacity: 80%;
+    border-radius: 10px;
+}
