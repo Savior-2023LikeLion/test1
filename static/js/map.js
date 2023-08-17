@@ -6,9 +6,7 @@ window.initMap = function () {
 
   const infowindow = new google.maps.InfoWindow();
 
-  var searchBox = new google.maps.places.SearchBox(
-    document.getElementById("pac-input")
-  );
+  var searchBox = new google.maps.places.SearchBox(document.getElementById("pac-input"));
 
   google.maps.event.addListener(searchBox, "places_changed", function () {
     var places = searchBox.getPlaces();
@@ -30,8 +28,6 @@ window.initMap = function () {
     map.fitBounds(bounds);
   });
 
-  const japanPageUrl = "{% url 'Savior : 일본' %}";
-
   const malls = [
     {
       label: "",
@@ -45,16 +41,17 @@ window.initMap = function () {
       name: "베트남, 하노이",
       lat: 21.022802,
       lng: 105.7590216,
-      pageUrl: "../../templates/vietnam.html",
+      pageUrl: vietnamPageUrl,
     },
     {
       label: "",
       name: "미국, 워싱턴DC",
       lat: 38.8939059,
       lng: -77.1793867,
-      pageUrl: "../../templates/USA.html",
+      pageUrl: USAPageUrl,
     },
   ];
+
   malls.forEach(({ label, name, lat, lng, pageUrl }) => {
     const marker = new google.maps.Marker({
       position: { lat, lng },

@@ -32,12 +32,14 @@ def main(request):
 def map(request):
     return render(request, "map.html")
 
+def recommend(request):
+    return render(request, "recommend.html")
 
 #nav바 시세 선택 페이지
 def pricelist(request):
     if request.method == 'POST':
         country = request.POST.get('country')
-        if country=='Japan':
+        if country=='japan':
             return redirect('savior:japan_pricelist')
         elif country=='USA':
             return redirect('savior:USA_pricelist')
@@ -714,14 +716,3 @@ def Vietnam_restaurant(request):
         # return render(request, 'recommend_restaurant.html', context)
 
     return render(request, 'Vietnam_restaurant_list.html')
-
-def recommend(request):
-    if request.method == 'POST':
-        country = request.POST.get('country')
-        if country=='japan':
-            return redirect('savior:recommend_japan')
-        elif country=='USA':
-            return redirect('savior:recommend_USA')
-        else:
-            return redirect('savior:recommend_vietnam')
-    return render(request, 'recommend.html')
