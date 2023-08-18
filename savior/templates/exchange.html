@@ -98,16 +98,7 @@
 
             {% endblock %} {% block extra-script %}
             <script>
-            let changeimg = document.getElementById("input-dropdown");
-            let myImg = document.getElementById("unit-icon");
-            
-            function changeImage() {
-                let index = changeimg.selectedIndex;
-                myImg.src = changeimg.options[index].value;
-            }
-            
-            changeImage();
-            changeimg.onchange = changeImage;
+
             
             const modal_wrap = document.querySelector(".modal_wrap");
             const modal_background = document.querySelector(".modal_background");
@@ -131,6 +122,7 @@
             //모달창 보여주는 이벤트 리스너
 
             document.querySelector("#btn_1").addEventListener("click", () => {
+                console.log("btn1");
                 console.log("btn_1");
             open();
             });
@@ -148,6 +140,17 @@
             window.addEventListener("click", (e) => {
             e.target === modal_background ? close() : false;
             });
+
+            let changeimg = document.getElementById("input-dropdown");
+            let myImg = document.getElementById("unit-icon");
+            
+            function changeImage() {
+                let index = changeimg.selectedIndex;
+                myImg.src = changeimg.options[index].value;
+            }
+            
+            changeImage();
+            changeimg.onchange = changeImage;
 
             // 이전 페이지로 이동하는 함수
             function goBack() {
