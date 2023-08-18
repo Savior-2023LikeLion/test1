@@ -25,8 +25,10 @@
   </div>
   <form class="choice" method="post" action="{% url 'savior:recommend_vietnam' %}">
     {% csrf_token %}
-    <input type="search" placeholder="베트남어로 검색해주세요." class="country" id="btn_1" name="user_input_search_v" required />
-    <input type="submit" value="Search" id="search" />
+    <div class="search_bar">
+      <input type="search" placeholder="베트남어로 검색해주세요." class="country" id="btn_1" name="user_input_search_v" required />
+      <input type="submit" value="Search" id="search" />
+    </div>
     <div class="review">
       {% for row in csv_data %}
       <div type="button" onclick="" id="box">
