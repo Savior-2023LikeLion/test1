@@ -323,3 +323,8 @@ p {
     background: none;
     cursor: pointer;
 }
+
+#delete a {
+    text-decoration: none;
+    color: #000;
+}
