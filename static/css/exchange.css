@@ -277,8 +277,8 @@ p {
     font-size: 15px;
     font-weight: 400;
     border-radius: 25px;
-    background-color: #7f6044;
-    color: #fff;
+    background-color: #ccb89d;
+
     border: none;
     margin-top: 5vh;
     font-family: "Judson";
@@ -373,11 +373,10 @@ p {
 
 /* 국가 선택 버튼 */
 #choose-btn {
-    color: white;
     margin-left: 10px;
     width: 15%;
     height: 35px;
-    background-color: #7f6044;
+    background-color: #ccb89d;
     opacity: 80%;
     border-radius: 10px;
 }

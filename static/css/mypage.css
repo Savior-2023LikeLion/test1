@@ -303,6 +303,37 @@ p {
     font-size: 20px;
 }
 
+/* 로그아웃 버튼*/
+
+.btn_logout {
+    margin: 0 auto;
+}
+
+.btn_logout > a {
+    display: flex;
+    justify-content: center;
+}
+
+#btn {
+    width: 50%;
+    height: 40px;
+
+    text-align: center;
+    border: none;
+    background-color: rgba(150, 158, 108, 1);
+    color: #fff;
+    border-radius: 25px;
+    font-size: 2vh;
+    font-family: "Judson";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn a {
+    color: #fff;
+}
+
 /* 비로그인 상태 section */
 #logout {
     margin-top: 30vh;

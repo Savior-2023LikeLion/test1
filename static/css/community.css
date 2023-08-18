@@ -144,7 +144,7 @@ p {
 /* section */
 .sec {
     height: calc(100vh - 58px - 66px - 53px);
-    overflow-y: auto;
+    overflow-y: visible;
 }
 
 .sec::-webkit-scrollbar {
@@ -234,7 +234,7 @@ p {
 
     text-align: center;
     border: none;
-    background-color: #7f6044;
+    background-color: rgba(150, 158, 108, 1);
     color: #fff;
     border-radius: 25px;
     position: fixed;

@@ -127,7 +127,6 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
 }
 
 @media (hover: hover) {
@@ -148,7 +147,7 @@ input[type="submit"] {
     height: 30px;
     width: 70px;
     border: none;
-    background: rgba(151, 97, 78, 1);
+    background-color: rgba(150, 158, 108, 1);
     color: white;
     border-radius: 20px;
     font-family: "Judson";
@@ -279,7 +278,7 @@ p {
 /* section */
 .sec {
     height: calc(100vh - 58px - 66px - 53px);
-    padding-bottom: 30%;
+    padding-bottom: 20%;
     overflow-y: scroll;
 }
 
@@ -323,4 +322,9 @@ p {
     border: none;
     background: none;
     cursor: pointer;
+}
+
+#delete a {
+    text-decoration: none;
+    color: #000;
 }

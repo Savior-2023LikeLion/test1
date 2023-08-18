@@ -12,14 +12,14 @@
 <section class="sec">
     {% if request.user.is_authenticated %}
     <div class="choice">
-        <div class="country">
-            <span><a href="{% url 'savior:community_tag_japan' %}" class="tags" style="text-decoration: none">#일본</a></span>
+        <div class="country" style="background-color: #7f6044">
+            <span><a href="{% url 'savior:community_tag_japan' %}" class="tags" style="text-decoration: none; color: #fff">#일본</a></span>
         </div>
-        <div class="country">
-            <span><a href="{% url 'savior:community_tag_USA' %}" class="tags" style="text-decoration: none">#미국</a></span>
+        <div class="country" style="background-color: #ccb89d">
+            <span><a href="{% url 'savior:community_tag_USA' %}" class="tags" style="text-decoration: none; color: #fff">#미국</a></span>
         </div>
-        <div class="country">
-            <span><a href="{% url 'savior:community_tag_vietnam' %}" class="tags" style="text-decoration: none">#베트남</a></span>
+        <div class="country" style="background-color: #cd9047">
+            <span><a href="{% url 'savior:community_tag_vietnam' %}" class="tags" style="text-decoration: none; color: #fff">#베트남</a></span>
         </div>
     </div>
     {% for post in posts %}
