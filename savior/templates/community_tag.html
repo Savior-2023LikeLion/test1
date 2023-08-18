@@ -1,39 +1,25 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Savior : 자유게시판</title>
-        <link rel="stylesheet" href="{% static 'css/community.css' %}" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Judson&display=swap" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="background"></div>
-            <header class="hd">
-                <div class="hd-back">
-                    <img src="{% static 'image/nav/back.svg' %}" style="height: 30px" onclick="goBack()" />
-                </div>
-                <div class="hd-logo">
-                    <img src="{% static 'image/savior.png' %}" />
-                </div>
-                <div class="hd-profile">
-                    {% if request.user.is_authenticated %}
-                    <h5 style="display: inline" class="hd-username">{{ request.user.username }}님</h5>
-                    {% endif %}
-                    <a href="{% url 'savior:mypage' %}"> <img src="{% static 'image/nav/user_color.png' %}" /></a>
-                </div>
-            </header>
+{% extends 'base.html' %} {% load static %} {% block title %}자유게시판{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/community.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>자유게시판</p>
+  </div>
+</div>
 
-            <div class="inform">
-                <div class="title">
-                    <p>자유게시판</p>
-                </div>
-            </div>
+<section class="sec">
+  <div class="choice">
+    <div class="country">
+      <span>#{{ tag_name }}</span>
+    </div>
+    <div class="country">
+      <span>게시물 수: {{ posts.count }}</span>
+    </div>
+  </div>
 
+<<<<<<< HEAD
             <section class="sec">
                 <div class="choice">
                     <div id="country-name" class="country" style="color: #fff">#<span id="tag_name">{{ tag_name }}</span></div>
@@ -101,3 +87,31 @@
         </script>
     </body>
 </html>
+=======
+  {% for post in posts %}
+  <div class="list">
+    <div class="box">
+      <div class="writebox">
+        <p>
+          <a href="{% url 'savior:community_detail' post.pk %}">{{post.title}}</a>
+        </p>
+        <div class="list_user">
+          <div class="heart">
+            <img src="{% static 'image/icon/heart-outline.svg' %}" />
+            <span>{{ post.like_users.count }}</span>
+          </div>
+          <span>{{ post.user.username }}</span>
+        </div>
+      </div>
+      <div class="picbox">
+        {% if post.thumbnail %}
+        <img src="{{post.thumbnail.url}}" alt="" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %} {% block extra-script %} {% endblock %}
+>>>>>>> 7e97da133d4494ee7defdbe4d693c1ed1cdebeb9
