@@ -6,6 +6,36 @@ window.initMap = function () {
 
   const infowindow = new google.maps.InfoWindow();
 
+  const searchButton = document.getElementById("search-button");
+
+  searchButton.addEventListener("click", function () {
+    const input = document.getElementById("pac-input");
+    const query = input.value;
+    searchPlaces(query);
+  });
+
+  function searchPlaces(query) {
+    const placesService = new google.maps.places.PlacesService(map);
+
+    placesService.textSearch({ query: query }, function (results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        const bounds = new google.maps.LatLngBounds();
+
+        results.forEach(function (place) {
+          if (place.geometry.viewport) {
+            bounds.union(place.geometry.viewport);
+          } else {
+            bounds.extend(place.geometry.location);
+          }
+        });
+
+        map.fitBounds(bounds);
+      } else {
+        console.log("Place search failed with status:", status);
+      }
+    });
+  }
+
   var searchBox = new google.maps.places.SearchBox(document.getElementById("pac-input"));
 
   google.maps.event.addListener(searchBox, "places_changed", function () {
