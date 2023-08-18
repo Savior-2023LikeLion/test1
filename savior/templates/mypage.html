@@ -25,9 +25,9 @@
                 <div class="hd-logo">
                     <img src="{% static 'image/savior.png' %}./" />
                 </div>
-                <div class="hd-profile">
+                <div class="hd-profile" style="display: flex; flex-direction: row; align-items: center">
                     {% if request.user.is_authenticated %}
-                    <h5 style="display: inline" class="hd-username">{{ request.user.username }}님</h5>
+                    <h5 class="hd-username" style="display: inline; color: #412e27; margin-bottom: 10px; margin-right: 3px">{{ request.user.username }}님</h5>
                     {% endif %}
                     <a href="{% url 'savior:mypage' %}"> <img src="{% static 'image/nav/user_color.png' %}" /></a>
                 </div>
