@@ -1,48 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>식당 소개 페이지 </title>
+{% extends 'base.html' %} {% load static %} {% block title %}식당추천{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/recommend.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:USA' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>식당 추천</p>
+  </div>
+</div>
 
-</head>
-<body>
-    <h1>미국 - 캘리포니아 주 - los Angeles 식당 </br>
-        원하는 음식을 검색한 후 search 버튼을 눌러주세요.</h1>
-    <form method="post" action="{% url 'savior:recommend' %}">
-        {% csrf_token %}
-        <label for="user_input_search">입력받는 변수 이름 Suser_input_search 입니다. 이를 작성하세요:</label> 
-
-
-        <input type="text" id="user_input_search" name="user_input_search" required>
-        <button type="submit">Search</button> </br></br></br>
-
-        <h2>검색 결과를 표로 보여드립니다 :</h2>
-        <h4>검색 시간이 조금 걸려요~ 기다려 주세용~ </h4>
-        <table>
-            <thead>
-                <tr>
-                    <th>food_name</th>
-                    <th>codezip</th>
-                    <th>rating</th>
-                    <th>reviews</th>
-                    <th>dollar</th>
-                    <th>address</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--* csv_data는 view에서 정의된 리스트  -->
-                {% for row in csv_data %} 
-                <tr>
-                    <td>{{ row.food_name }}</td>
-                    <td>{{ row.codezip }}</td>
-                    <td>{{ row.rating }}</td>
-                    <td>{{ row.reviews }}</td>
-                    <td>{{ row.dollar }}</td>
-                    <td>{{ row.address }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
+<section class="sec">
+  <div class="choose">
+    <form action="{% url 'savior:recommend' %}" method="POST">
+      {% csrf_token %}
+      <!-- changeCountry -->
+      <select name="country" id="input-dropdown">
+        <option disabled value="">국가 선택</option>
+        <option value="japan">Japan</option>
+        <option selected value="USA">USA</option>
+        <option value="vietnam">Vietnam</option>
+      </select>
+      <input type="submit" value="선택" id="choose-btn" style="opacity: 1" />
     </form>
-</body>
-</html>
+  </div>
+  <form class="choice" method="post" action="{% url 'savior:recommend_USA' %}">
+    {% csrf_token %}
+    <input type="search" placeholder="영어로 검색해주세요." class="country" id="btn_1" name="user_input_search_v" required />
+    <input type="submit" value="Search" id="search" />
+    <div class="review">
+      {% for row in csv_data %}
+      <div type="button" onclick="" id="box">
+        <!--가게사진-->
+        <img src="{% static 'image/price/review_ex.png' %}" />
+        <!--가게이름, 별점-->
+        <div class="place">
+          <p>{{ row.food_name }}</p>
+          <div class="rate_price">
+            <p>{{ row.rating }} ({{ row.reviews }})</p>
+            <p style="margin-left: 10px">{{ row.dollar }}</p>
+          </div>
+        </div>
+        <!--가게 위치-->
+        <div class="place">
+          <div class="icon_address"><img src="{% static 'image/icon/location.svg' %}" /> ({{ row.codezip }}) {{ row.address }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </form>
+</section>
+
+{% endblock %} {% block extra-script %} {% endblock %}
