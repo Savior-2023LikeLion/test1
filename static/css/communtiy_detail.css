@@ -127,7 +127,6 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
 }
 
 @media (hover: hover) {
@@ -279,7 +278,7 @@ p {
 /* section */
 .sec {
     height: calc(100vh - 58px - 66px - 53px);
-    padding-bottom: 30%;
+    padding-bottom: 20%;
     overflow-y: scroll;
 }
 

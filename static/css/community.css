@@ -144,7 +144,7 @@ p {
 /* section */
 .sec {
     height: calc(100vh - 58px - 66px - 53px);
-    overflow-y: auto;
+    overflow-y: visible;
 }
 
 .sec::-webkit-scrollbar {
