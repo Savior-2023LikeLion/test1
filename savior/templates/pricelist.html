@@ -4,57 +4,91 @@
 <a href="{% url 'savior:main' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
 {% endblock %} {% block content %}
 <div class="inform">
-  <div class="title">
-    <p>주요 물품의 시세</p>
-  </div>
+    <div class="title">
+        <p>주요 물품의 시세</p>
+    </div>
 </div>
 
 <section class="sec">
-  <div class="choose">
-    <form action="{% url 'savior:pricelist' %}" method="POST">
-      {% csrf_token %}
-      <!-- changeCountry -->
-      <select name="country" id="input-dropdown">
-        <option selected disabled value="">국가 선택</option>
-        <option value="japan">Japan</option>
-        <option value="USA">USA</option>
-        <option value="vietnam">Vietnam</option>
-      </select>
-      <input type="submit" value="선택" id="choose-btn" />
-    </form>
-  </div>
-
-  <div class="pricebtn">
-    <button type="button" onclick="" class="buttons" id="btn_1"><img src="{% static 'image/icon/cloth.png' %}" /><span>의류</span></button>
-    <button type="button" onclick="" class="buttons" id="btn_2"><img src="{% static 'image/icon/food.svg' %}" /><span>음식</span></button>
-    <button type="button" onclick="" class="buttons" id="btn_3"><img src="{% static 'image/icon/gift-card.png' %}" /><span>잡화</span></button>
-  </div>
-
-  <div class="modal_background"></div>
-
-  <div class="modal_wrap">
-    <div class="modal_close">
-      <img src="{% static 'image/icon/close.png' %}" />
+    <div class="choose">
+        <form action="{% url 'savior:pricelist' %}" method="POST">
+            {% csrf_token %}
+            <!-- changeCountry -->
+            <select name="country" id="input-dropdown">
+                <option selected disabled value="">국가 선택</option>
+                <option value="japan">Japan</option>
+                <option value="USA">USA</option>
+                <option value="vietnam">Vietnam</option>
+            </select>
+            <input type="submit" value="선택" id="choose-btn" />
+        </form>
     </div>
-    <div class="modal_text">
-      <div class="modal_logo">
-        <img src="{% static 'image/savior.png' %}" />
-      </div>
 
-      <div class="modal_content">
-        <div class="modal_mention">
-          <p>국가를 선택해주세요</p>
+    <div class="pricebtn">
+        <button type="button" onclick="" class="buttons" id="btn_1"><img src="{% static 'image/icon/cloth.png' %}" /><span>의류</span></button>
+        <button type="button" onclick="" class="buttons" id="btn_2"><img src="{% static 'image/icon/food.svg' %}" /><span>음식</span></button>
+        <button type="button" onclick="" class="buttons" id="btn_3"><img src="{% static 'image/icon/gift-card.png' %}" /><span>잡화</span></button>
+    </div>
+
+    <div class="modal_background"></div>
+
+    <div class="modal_wrap">
+        <div class="modal_close">
+            <img src="{% static 'image/icon/close.png' %}" />
         </div>
-      </div>
+        <div class="modal_text">
+            <div class="modal_logo">
+                <img src="{% static 'image/savior.png' %}" />
+            </div>
+
+            <div class="modal_content">
+                <div class="modal_mention">
+                    <p>국가를 선택해주세요</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
-{% endblock %} {% block extra-script %} {% endblock %}
+{% endblock %} {% block extra-script %}
 <script>
-  //드롭다운 클릭 시 선택 버튼 opacity 변경
-  document.querySelector("#input-dropdown").addEventListener("click", () => {
-    console.log("opacity 수정하기~");
-    document.getElementById("choose-btn").style.opacity = "1.0";
-  });
+    //드롭다운 클릭 시 선택 버튼 opacity 변경
+    document.querySelector("#input-dropdown").addEventListener("click", () => {
+        console.log("opacity 수정하기~");
+        document.getElementById("choose-btn").style.opacity = "1.0";
+    });
 </script>
-<script src="{% static 'js/modal_country.js' %}"></script>
+<script>
+    const modal_wrap = document.querySelector(".modal_wrap");
+    const modal_background = document.querySelector(".modal_background");
+    //닫기 버튼눌러서 모달창 지우는 이벤트 리스너
+    document.querySelector(".modal_close").addEventListener("click", () => {
+        close();
+    });
+
+    //모달창 바깥부분 눌러서 모달창 닫는 이벤트 리스너
+    window.addEventListener("click", (e) => {
+        e.target === modal_background ? close() : false;
+    });
+
+    //모달창 보여주는 이벤트 리스너
+
+    document.querySelector("#btn_1").addEventListener("click", () => {
+        open();
+    });
+    document.querySelector("#btn_2").addEventListener("click", () => {
+        open();
+    });
+    document.querySelector("#btn_3").addEventListener("click", () => {
+        open();
+    });
+
+    function close() {
+        modal_wrap.classList.remove("show-modal");
+        modal_background.classList.remove("show-modal");
+    }
+    function open() {
+        modal_wrap.classList.add("show-modal");
+        modal_background.classList.add("show-modal");
+    }
+</script>
+{% endblock %}
