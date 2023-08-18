@@ -36,11 +36,9 @@
 
             <section class="sec">
                 <div class="choice">
-                    <div class="country" style="color: #fff">
-                        <span id="country-name">#{{ tag_name }}</span>
-                    </div>
-                    <div class="country" style="color: #fff">
-                        <span id="country-posts">게시물 수: {{ posts.count }}</span>
+                    <div id="country-name" class="country" style="color: #fff">#<span id="tag_name">{{ tag_name }}</span></div>
+                    <div id="country-posts" class="country" style="color: #fff">
+                        <span>게시물 수: {{ posts.count }}</span>
                     </div>
                 </div>
 
@@ -82,5 +80,24 @@
         </div>
         <script src="{% static 'js/go-back.js' %}"></script>
         <script src="{% static 'js/go-back-nonclick.js' %}"></script>
+        <script>
+            const value = document.querySelector("#tag_name").innerHTML;
+            const country_name = document.querySelector("#country-name");
+            const country_posts = document.querySelector("#country-posts");
+
+            console.log(value);
+            if (value == "일본") {
+                country_name.style.backgroundColor = "#7F6044";
+                country_posts.style.backgroundColor = "#7F6044";
+            } else if (value == "미국") {
+                country_name.style.backgroundColor = "#CCB89D";
+                country_posts.style.backgroundColor = "#CCB89D";
+            } else if (value == "베트남") {
+                country_name.style.backgroundColor = "#CD9047";
+                country_posts.style.backgroundColor = "#CD9047";
+            } else {
+                console.log("x");
+            }
+        </script>
     </body>
 </html>
