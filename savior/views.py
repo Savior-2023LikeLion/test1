@@ -25,8 +25,8 @@ def intro(request):
     return render(request, "intro.html")
 
 #임시용 메인페이지
-def main(request):
-    return render(request, "main.html")
+# def main(request):
+#     return render(request, "main.html")
 
 #메인 맵 페이지
 def map(request):

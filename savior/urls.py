@@ -7,12 +7,12 @@ from django.conf.urls.static import static
 app_name='savior'
 
 urlpatterns = [
-    path('', views.main , name='main'),
+    path('', views.intro , name='intro'),
     path('pricelist/', views.pricelist , name='pricelist'),
     path('exchange/', views.exchange , name='exchange'),
     path('recommend/', views.recommend , name='recommend'),
     path('map/', views.map , name='map'),
-    path('intro/', views.intro , name='intro'),
+    # path('intro/', views.intro , name='intro'),
 
     #일본
     path('japan/', views.japan , name='japan'),
