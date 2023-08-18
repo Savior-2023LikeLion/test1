@@ -26,7 +26,10 @@
                     <img src="{% static 'image/savior.png' %}"/>
                 </div>
                 <div class="hd-profile">
-                    <a href="{% url 'savior:mypage' %}"> <img src="{% static 'image/nav/user_color.png' %}"/></a>
+                    {% if request.user.is_authenticated %}
+                    <h5 style="display: inline" class="hd-username">{{ request.user.username }}님</h5>
+                    {% endif %}
+                    <a href="{% url 'savior:mypage' %}"> <img src="{% static 'image/nav/user_color.png' %}" /></a>
                 </div>
             </header>
 

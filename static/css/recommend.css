@@ -108,6 +108,17 @@ p {
   margin-right: 15px;
 }
 
+.hd-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.hd-username {
+  color: #412e27;
+  margin-bottom: 10px;
+  margin-right: 3px;
+}
+
 .page-title {
   margin: 0 3vw;
   font-size: 4vh;
