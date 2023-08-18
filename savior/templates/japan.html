@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block title %}일본{% endblock %} {% block extra-style %}
 <link rel="stylesheet" href="{% static 'css/japan_functions.css' %}" />
 {% endblock %} {% block back %}
-<a href="{% url 'savior:main' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+<a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
 {% endblock %} {% block content %}
 <section class="sec">
   <div class="title">
