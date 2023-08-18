@@ -1,76 +1,35 @@
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block title %}게시글 작성{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/community_post.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>새 글 작성</p>
+  </div>
+</div>
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Savior : 게시글 작성</title>
-    
-    <link rel="stylesheet" href="{% static 'css/community_post.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Judson&display=swap" rel="stylesheet"/>
-    <body>
-        <div class="container">
-            <div class="background"></div>
-            <header class="hd">
-                <div class="hd-back">
-                    <img
-                        src="{% static 'image/nav/back.svg' %}"
-                        style="height: 30px"
-                        onclick="goBack()"
-                    />
-                </div>
-                <div class="hd-logo">
-                    <img src="{% static 'image/savior.png' %}"/>
-                </div>
-                <div class="hd-profile">
-                    {% if request.user.is_authenticated %}
-                    <h5 style="display: inline" class="hd-username">{{ request.user.username }}님</h5>
-                    {% endif %}
-                    <a href="{% url 'savior:mypage' %}"> <img src="{% static 'image/nav/user_color.png' %}" /></a>
-                </div>
-            </header>
+<section class="sec">
+  <form action="{% url 'savior:community_post' %}" method="POST" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" id="page-title" name="title" placeholder="글 제목을 입력해주세요" />
+    <input id="country-tags" name="tags" type="text" placeholder=" 국가 태그를 입력해주세요 (ex. 일본 / 일본,미국)" />
+    <hr />
+    <textarea name="content" id="page-textarea" cols="30" rows="13" placeholder="글 내용을 입력해주세요"></textarea>
+    <div class="filebox">
+      <label for="file">
+        <div class="file-upload">첨부 파일</div>
+      </label>
+      <input type="file" name="thumbnail" id="file" accept="image" />
+      <!-- <span> | </span> -->
+      <!-- <button id="cancelButton">취소</button> -->
+    </div>
+    <div class="submit">
+      <input type="submit" class="submit-button" />
+    </div>
+  </form>
+</section>
 
-            <div class="inform">
-                <div class="title">
-                    <p>새 글 작성</p>
-                </div>
-            </div>
-
-            <section class="sec">
-                <form action="{% url 'savior:community_post' %}" method="POST" class="form" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <input type="text" id="page-title" name="title" placeholder="글 제목을 입력해주세요">
-                    <input id="country-tags" name="tags" type="text" placeholder=" 국가 태그를 입력해주세요 (ex. 일본 / 일본,미국)">
-                    <hr>
-                    <textarea name="content" id="page-textarea" cols="30" rows="13" placeholder="글 내용을 입력해주세요"></textarea>
-                    <div class="filebox">
-                        <label for="file">
-                            <div class="file-upload">첨부 파일 </div>
-                        </label>
-                        <input type="file" name="thumbnail" id="file" accept="image">
-                        <!-- <span> | </span> -->
-                        <!-- <button id="cancelButton">취소</button> -->
-                    </div>
-                    <div class="submit"">
-                        <input type="submit" class="submit-button" >
-                    </div>
-                </form>
-            </section>
-
-            <navigation class="nav">
-                <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
-                <a href="{% url 'savior:recommend' %}"><img src="{% static 'image/nav/eat.png' %}" /></a>
-                <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px"/></a>
-                <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
-                <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
-            </navigation>
-        </div>
-        <script src="{% static 'js/go-back.js' %}"></script>
-        <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-        <script src="{% static 'js/scrap.js' %}"></script>
-        <script src="{% static 'js/community_post.js' %}"></script>
-    </body>
-</html>
+{% endblock %} {% block extra-script %}
+<script src="{% static 'js/community_post.js' %}"></script>
+{% endblock %}
