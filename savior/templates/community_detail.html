@@ -50,8 +50,9 @@
                             <span>{{post.created}}</span>
                         </div>
                         {% if user.is_authenticated and user == post.user %}
-                        <a href="{% url 'savior:community_delete' post.pk %}"><button>삭제</button></a>
-                        {% endif %}<br />
+                        <div id="delete"><a href="{% url 'savior:community_delete' post.pk %}">[ 삭제 ]</a></div>
+
+                        {% endif %}
                     </div>
                     <h2>{{post.title}}</h2>
                     <p>{{post.content}}</p>
@@ -89,15 +90,16 @@
                     </div>
                 </div>
 
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="add-reples-box">
+                <div class="add-reples-box">
+                    <form method="POST">
+                        {% csrf_token %}
+
                         <div class="add-reples">
                             <input type="text" placeholder="댓글을 작성해주세요." name="comment" class="add-reples-textbox" />
                             <input type="submit" value="등록" name="submit" class="button" />
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </section>
 
             <navigation class="nav">
