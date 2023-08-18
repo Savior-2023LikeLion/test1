@@ -40,10 +40,11 @@
             </div>
 
             <section class="sec">
+                {% if request.user.is_authenticated %}
                 <div id="mention">
                     <!--! 로그인, 회원가입, 로그아웃 -->
                     <!--* 로그인 사용자 이름(id) 확인 -->
-                    {% if request.user.is_authenticated %}
+
                     <h3>{{ request.user.username }}님, 반갑습니다</h3>
                 </div>
 
@@ -127,20 +128,19 @@
                         </div>
                     </a>
                     {% endfor %}
-                    <br />
-                    {% else %}
+                </div>
+
+                {% else %}
+                <div id="logout" style="margin-top: 30vh; text-align: center">
                     <span>먼저 로그인 해주세요 </span><br />
 
                     <!--* 로그아웃 버튼 -->
                     <button id="login_btn">
                         <a href="{% url 'savior:accounts:login' %}" style="color: #fff">로그인</a>
                     </button>
-                    {% endif %}
-                    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-                    <script src="./js/mypage.js"></script>
-                    <script src="./js/go-back.js"></script>
-                    <script src="./js/go-back-nonclick.js"></script>
                 </div>
+
+                {% endif %}
             </section>
             <navigation class="nav">
                 <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>

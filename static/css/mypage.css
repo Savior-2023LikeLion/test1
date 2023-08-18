@@ -303,6 +303,12 @@ p {
     font-size: 20px;
 }
 
+/* 비로그인 상태 section */
+#logout {
+    margin-top: 30vh;
+    text-align: center;
+}
+
 /*로그아웃 상태에서 로그인 버튼*/
 #login_btn {
     width: 50%;
