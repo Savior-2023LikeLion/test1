@@ -19,6 +19,75 @@
     </div>
   </div>
 
+<<<<<<< HEAD
+            <section class="sec">
+                <div class="choice">
+                    <div id="country-name" class="country" style="color: #fff">#<span id="tag_name">{{ tag_name }}</span></div>
+                    <div id="country-posts" class="country" style="color: #fff">
+                        <span>게시물 수: {{ posts.count }}</span>
+                    </div>
+                </div>
+
+                {% for post in posts %}
+                <div class="list">
+                    <div class="box">
+                        <div class="picbox">
+                            {% if post.thumbnail %}
+                            <img src="{{post.thumbnail.url}}" alt="" />
+                            {% endif %}
+                        </div>
+                        <div class="writebox">
+                            <p>
+                                <a href="{% url 'savior:community_detail' post.pk %}">{{post.title}}</a>
+                            </p>
+                            <div class="list_user">
+                                <div class="heart">
+                                    <img src="{% static 'image/icon/heart-outline.svg' %}" />
+                                    <span>{{ post.like_users.count }}</span>
+                                </div>
+                                <span>{{ post.user.username }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- <div class="btn_write">
+                <a href="{% url 'savior:community_post' %}"><button type="button" onclick="" id="btn">글쓰기</button></a>
+            </div> -->
+            </section>
+
+            <navigation class="nav">
+                <a href="{% url 'savior:exchange' %}"><img src="{% static 'image/nav/money.svg' %}" /></a>
+                <a href="{% url 'savior:recommend' %}"><img src="{% static 'image/nav/eat.png' %}" /></a>
+                <a href="{% url 'savior:map' %}"><img src="{% static 'image/nav/pin_color.png' %}" style="height: 45px" /></a>
+                <a href="{% url 'savior:pricelist' %}"><img src="{% static 'image/nav/tag_color.png' %}" /></a>
+                <a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/edit-message.png' %}" /></a>
+            </navigation>
+        </div>
+        <script src="{% static 'js/go-back.js' %}"></script>
+        <script src="{% static 'js/go-back-nonclick.js' %}"></script>
+        <script>
+            const value = document.querySelector("#tag_name").innerHTML;
+            const country_name = document.querySelector("#country-name");
+            const country_posts = document.querySelector("#country-posts");
+
+            console.log(value);
+            if (value == "일본") {
+                country_name.style.backgroundColor = "#7F6044";
+                country_posts.style.backgroundColor = "#7F6044";
+            } else if (value == "미국") {
+                country_name.style.backgroundColor = "#CCB89D";
+                country_posts.style.backgroundColor = "#CCB89D";
+            } else if (value == "베트남") {
+                country_name.style.backgroundColor = "#CD9047";
+                country_posts.style.backgroundColor = "#CD9047";
+            } else {
+                console.log("x");
+            }
+        </script>
+    </body>
+</html>
+=======
   {% for post in posts %}
   <div class="list">
     <div class="box">
@@ -45,3 +114,4 @@
 </section>
 
 {% endblock %} {% block extra-script %} {% endblock %}
+>>>>>>> 7e97da133d4494ee7defdbe4d693c1ed1cdebeb9
