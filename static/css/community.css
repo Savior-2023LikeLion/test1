@@ -234,7 +234,7 @@ p {
 
     text-align: center;
     border: none;
-    background-color: #7f6044;
+    background-color: rgba(150, 158, 108, 1);
     color: #fff;
     border-radius: 25px;
     position: fixed;

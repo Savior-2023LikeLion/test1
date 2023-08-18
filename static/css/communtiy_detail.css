@@ -148,7 +148,7 @@ input[type="submit"] {
     height: 30px;
     width: 70px;
     border: none;
-    background: rgba(151, 97, 78, 1);
+    background-color: rgba(150, 158, 108, 1);
     color: white;
     border-radius: 20px;
     font-family: "Judson";
