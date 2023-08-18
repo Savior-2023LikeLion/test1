@@ -10,6 +10,7 @@
 </div>
 
 <section class="sec">
+    {% if request.user.is_authenticated %}
     <div class="choice">
         <div class="country">
             <span><a href="{% url 'savior:community_tag_japan' %}" class="tags" style="text-decoration: none">#일본</a></span>
@@ -48,5 +49,18 @@
     <div class="btn_write">
         <a href="{% url 'savior:community_post' %}"><button type="button" onclick="" id="btn">글쓰기</button></a>
     </div>
+
+    {% else %}
+    <div id="logout">
+        <span>먼저 로그인 해주세요 </span><br />
+
+        <!--* 로그아웃 버튼 -->
+        <button id="login_btn">
+            <a href="{% url 'savior:accounts:login' %}" style="color: #fff">로그인</a>
+        </button>
+    </div>
+
+    {% endif %}
 </section>
+
 {% endblock %} {% block extra-script %} {% endblock %}

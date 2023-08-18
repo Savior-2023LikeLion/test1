@@ -556,8 +556,7 @@ def mypage(request):
 
 #커뮤니티
 def community(request):
-    if not request.user.is_authenticated:
-        return redirect("savior:accounts:login")
+
     posts = Post.objects.all()
     context = {"posts": posts}
     return render(request, "community.html", context)

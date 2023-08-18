@@ -271,3 +271,24 @@ a:active {
 .tags {
     text-decoration: none;
 }
+
+/* 비로그인 상태 section */
+#logout {
+    margin-top: 30vh;
+    text-align: center;
+}
+
+/*로그아웃 상태에서 로그인 버튼*/
+#login_btn {
+    width: 50%;
+    height: 5vh;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1vh 2vh;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 25px;
+    background-color: #7f6044;
+    border: none;
+    margin-top: 5vh;
+}
