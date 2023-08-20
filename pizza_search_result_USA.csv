@@ -1,21 +1,26 @@
 ﻿,food_name,codezip,rating,reviews,dollar,address
-0,Pizza Hut,90003,3.9,566,₩,7229 S Figueroa St
-1,Pizzamania LA,90003,4.1,221,₩,7008 San Pedro St
-2,Tumby's Pizza,90003,4.3,534,₩,8509 S Figueroa St
-3,Little Caesars Pizza,90003,3.8,203,₩,454 W Florence Ave Unit 104
-4,Little Caesars Pizza,90003,4.0,396,₩,183 W Manchester Ave
-5,Pizza Hut,90004,3.9,566,₩,7229 S Figueroa St
-6,Pizzamania LA,90004,4.1,221,₩,7008 San Pedro St
-7,Tumby's Pizza,90004,4.3,534,₩,8509 S Figueroa St
-8,Little Caesars Pizza,90004,3.8,203,₩,454 W Florence Ave Unit 104
-9,Little Caesars Pizza,90004,4.0,396,₩,183 W Manchester Ave
-10,Farina Pizza,90005,4.8,79,₩₩,119 S Western Ave
-11,Village Pizzeria Larchmont,90005,4.4,499,₩,131 N Larchmont Blvd
-12,피자헛,90005,3.7,295,₩,4207 Beverly Blvd
-13,Piara Pizza,90005,4.5,313,₩,4165 Beverly Blvd
-14,Marco's Pizza,90005,3.6,8,₩,615 N Western Ave
-15,Farina Pizza,90006,4.8,79,₩₩,119 S Western Ave
-16,Village Pizzeria Larchmont,90006,4.4,499,₩,131 N Larchmont Blvd
-17,피자헛,90006,3.7,295,₩,4207 Beverly Blvd
-18,Piara Pizza,90006,4.5,313,₩,4165 Beverly Blvd
-19,Marco's Pizza,90006,3.6,8,₩,615 N Western Ave
+0,Domino's Pizza,90002,3.3,275,₩,10207 S Central Ave
+1,Maximo's Pizza,90002,4.6,163,₩,4157 Long Beach Ave
+2,Proper Pizza and Pasta,90002,4.6,276,₩₩,1011 S Alvarado St
+3,Piara Pizza,90002,4.4,250,₩,11151 Avalon Blvd
+4,Pizzamania LA,90002,4.1,221,₩,7008 San Pedro St
+5,Pizza Hut,90003,3.9,566,₩,7229 S Figueroa St
+6,Pizzamania LA,90003,4.1,221,₩,7008 San Pedro St
+7,Tumby's Pizza,90003,4.3,534,₩,8509 S Figueroa St
+8,Little Caesars Pizza,90003,3.8,203,₩,454 W Florence Ave Unit 104
+9,Little Caesars Pizza,90003,4.0,397,₩,183 W Manchester Ave
+10,Farina Pizza,90004,4.8,79,₩₩,119 S Western Ave
+11,Village Pizzeria Larchmont,90004,4.4,499,₩,131 N Larchmont Blvd
+12,피자헛,90004,3.7,294,₩,4207 Beverly Blvd
+13,Piara Pizza,90004,4.5,313,₩,4165 Beverly Blvd
+14,Marco's Pizza,90004,3.6,8,₩,615 N Western Ave
+15,Tu PanYou Pizza,90005,4.0,211,₩,3129 W 8th St #1902
+16,Farina Pizza,90005,4.8,79,₩₩,119 S Western Ave
+17,Koreatown Pizza Co.,90005,4.4,553,₩₩,3900 Wilshire Blvd
+18,Pizza Go,90005,4.4,273,₩₩,4200 W 3rd St
+19,Thanks Pizza,90005,4.4,82,₩,450 S Western Ave #305 FC-1
+20,Pizza Hut,90006,3.7,596,₩,1555 S Western Ave
+21,Proper Pizza and Pasta,90006,4.6,276,₩₩,1011 S Alvarado St
+22,Thanks Pizza,90006,4.4,82,₩,450 S Western Ave #305 FC-1
+23,Farina Pizza,90006,4.8,79,₩₩,119 S Western Ave
+24,Fat Tomato Pizza K-town LA,90006,4.5,91,₩₩,301 S Western Ave #104

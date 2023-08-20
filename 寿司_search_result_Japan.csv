@@ -1,20 +1,22 @@
 ﻿,food_name,codezip,rating,reviews,dollar,address
-0,Sushi Saito,105-0002,4.4,364,₩₩₩₩,"Roppongi, 1 Chome−4−5, ARK Hills South Tower, 1F"
-1,신바시 시미즈,105-0002,4.0,177,₩₩,2 Chome-15-10 Shinbashi
-2,穴子や 神谷町,105-0002,4.3,108, ,"Toranomon, 5 Chome−3−10 トランスパックビル 1階"
-3,이타마에 스시 긴자 코리도 점,105-0002,4.1,726,₩₩,"Ginza, 8 Chome−2−13, J Bld., １階"
-4,Shunji,105-0002,4.8,43, ,"Motoazabu, 3 Chome−6−34 カーム元麻布 1F"
-5,Tachigui Sushi Tonari,105-0002,3.5,28, ,"Azabujuban, 2 Chome−8−7 M2K HoldingBLD 2階"
-6,Sushi Saito,105-0003,4.4,364,₩₩₩₩,"Roppongi, 1 Chome−4−5, ARK Hills South Tower, 1F"
-7,신바시 시미즈,105-0003,4.0,177,₩₩,2 Chome-15-10 Shinbashi
-8,穴子や 神谷町,105-0003,4.3,108, ,"Toranomon, 5 Chome−3−10 トランスパックビル 1階"
-9,스폰서,105-0003,香水亭 新橋店, , ,₩₩₩
-10,Shimada Sushi,105-0004,4.3,82,₩₩₩₩,1 Chome-13-6 Nishishinbashi
-11,Sushi Umikara,105-0004,4.4,9, ,"Nishishinbashi, 1 Chome−14−9 ジェスペールビル"
-12,Sushi Masa,105-0004,4.2,19,₩₩,"Nishishinbashi, 1 Chome−19−8 片山ビル ２階"
-13,Kubota Sushi,105-0004,3.5,32, ,1 Chome-22-6 Nishishinbashi
-14,카키야 스시 시바코엔점,105-0004,3.4,16,₩₩,"Shibadaimon, 1 Chome−6−10 カーサ・ハナジマ １Ｆ"
-15,大門武鮨,105-0011,4.0,146, ,1 Chome-7-14 Shibakoen
-16,시미즈,105-0011,4.3,84, ,3 Chome-3-1 Shibakoen
-17,Sushi Yoshi,105-0011,4.0,36, ,2 Chome-16-4 Shiba
-18,Sushi Hamashiba,105-0011,4.3,38, ,"Shibakoen, 4 Chome−8−1 ザ・プリンスパークタワー東京地下 ２階"
+0,Sushi Hiroya,105-0002,4.5,65, ,"Hamamatsucho, 1 Chome−9−2 E-GAMIビル 1F"
+1,Sushi Saito,105-0002,4.4,363,₩₩₩₩,"Roppongi, 1 Chome−4−5, ARK Hills South Tower, 1F"
+2,신바시 시미즈,105-0002,4.0,177,₩₩,2 Chome-15-10 Shinbashi
+3,Tachigui Sushi Tonari,105-0002,3.6,29, ,"Azabujuban, 2 Chome−8−7 M2K HoldingBLD 2階"
+4,穴子や 神谷町,105-0002,4.3,108, ,"Toranomon, 5 Chome−3−10 トランスパックビル 1階"
+5,麻布十番 鮨 秦野よしき,105-0002,4.4,48, ,"Azabujuban, 2 Chome−8−6 B2 ラベイユ"
+6,Shimada Sushi,105-0003,4.3,82,₩₩₩₩,1 Chome-13-6 Nishishinbashi
+7,Sushi Umikara,105-0003,4.4,9, ,"Nishishinbashi, 1 Chome−14−9 ジェスペールビル"
+8,Sushi Masa,105-0003,4.2,19,₩₩,"Nishishinbashi, 1 Chome−19−8 片山ビル ２階"
+9,Kubota Sushi,105-0003,3.5,33, ,1 Chome-22-6 Nishishinbashi
+10,鮨 折おり,105-0003,4.1,13, ,1 Chome-10-6 Nishishinbashi
+11,이타마에스시 신바시,105-0004,4.1,280,₩₩,"Shinbashi, 3 Chome−14−5 S-TEC3ビル 1F"
+12,Sushi-ya no Uokin,105-0004,3.9,281,₩₩,"Shinbashi, 3 Chome−20−6 新橋金子ビル 1・2F"
+13,Tensushi,105-0004,3.8,129,₩₩₩,"Shinbashi, 2 Chome−10−1 庄屋ビル 4-E"
+14,Tsukijisushiko Shinbashiten,105-0004,3.8,236,₩₩,"Shinbashi, 3 Chome−18−1, Shinbashi Senyou Bld., 1F"
+15,Sushi Takanohane Shimbashi,105-0004,3.6,91,₩₩,"Shinbashi, 3 Chome−6−1 地下1階 碧山ビル"
+16,카키야 스시 시바코엔점,105-0011,3.4,16,₩₩,"Shibadaimon, 1 Chome−6−10 カーサ・ハナジマ １Ｆ"
+17,大門武鮨,105-0011,4.0,146, ,1 Chome-7-14 Shibakoen
+18,시미즈,105-0011,4.3,84, ,3 Chome-3-1 Shibakoen
+19,Sushi Yoshi,105-0011,4.0,36, ,2 Chome-16-4 Shiba
+20,Sushi Hamashiba,105-0011,4.3,38, ,"Shibakoen, 4 Chome−8−1 ザ・プリンスパークタワー東京地下 ２階"

@@ -84,10 +84,12 @@
       </div>
     </div>
   </div>
+  {% if request.user.is_authenticated %}
   <!-- 시세 입력 버튼 -->
   <button id="modal_btn" type="button">
     <img src="{% static 'image/icon/plus.svg' %}" />
   </button>
+  {% endif %}
   <!-- 모달창 -->
   <div class="modal_background"></div>
   <div class="modal_wrap">
