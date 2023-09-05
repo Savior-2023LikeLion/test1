@@ -1,56 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        img {width: 100px; height: 100px;}
-    </style>
-</head>
-<body>
-    <a href="{% url 'savior:community' %}">뒤로가기</a><br>
-    <a href="{% url 'savior:mypage' %}">마이페이지</a><br><br>
+{% extends 'base.html' %} {% load static %} {% block title %}게시글{% endblock %}{% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/communtiy_detail.css' %}" />
+<style>
+  .thum_img {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+{% endblock %} {% block back %}
+<a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>자유게시판</p>
+  </div>
+</div>
 
-    <!-- 글 -->
-    <h3>{{post.title}}</h3>
+<section class="sec">
+  <div class="detail">
+    <div class="detail-top">
+      <div class="writer-info">
+        <h3>{{ post.user.username }}</h3>
+        <span>{{post.created}}</span>
+      </div>
+      {% if user.is_authenticated and user == post.user %}
+      <div id="delete"><a href="{% url 'savior:community_delete' post.pk %}">[ 삭제 ]</a></div>
+
+      {% endif %}
+    </div>
+    <h2>{{post.title}}</h2>
     <p>{{post.content}}</p>
-    <p>{{post.created}}</p><br>
-    
-    {% if post.thumbnail %}
-        <img src="{{post.thumbnail.url}}" alt="">
-    {% endif %}<br><br>
+    <br />
 
-    <p>좋아요 개수: {{ post.like_users.count }}</p>
-    <form action="{% url 'savior:likes' post.pk %}" method='POST'>
-        {% csrf_token %}
-            {% if user in post.like_users.all %}
-                <input type="submit" value='좋아요 취소'>
-            {% else %}
-                <input type="submit" value='좋아요'>
-            {% endif %}
-    </form><br><br>
-    
-
-    {% if user.is_authenticated and user == post.user %}
-        <a href="{% url 'savior:community_delete' post.pk %}"><button>삭제</button></a>
-    {% endif %}
-    <br><br><br>
-
-    <!-- 댓글 -->
-    <hr>
-    {% for comment in post.comment_set.all %}
-        {{ comment.user.username }}<br>
-        {{ comment.content }}<br>
-        {{ comment.created }}
-        <br><br>
-    {% endfor %}
-
-    <br><br><br><br>
-    <form method="POST">
-        {% csrf_token %}
-        <textarea name="comment"></textarea>
-        <button type="submit">등록</button>
+    <form action="{% url 'savior:likes' post.pk %}" method="POST">
+      {% csrf_token %}
+      <div class="like-button" id="likeButton">
+        {% if user in post.like_users.all %}
+        <input type="submit" value="취소" />
+        {% else %}
+        <input type="submit" value="좋아요" />
+        {% endif %}
+        <span><img src="{% static 'image/icon/heart-outline2.svg' %}" alt="Unliked" data-state="unliked" />{{ post.like_users.count }}</span>
+      </div>
     </form>
-</body>
-</html>
+    <hr />
+  </div>
+
+  <div class="reples">
+    <div class="reple">
+      {% for comment in post.comment_set.all %}
+      <div class="user-info">
+        <h3>{{ comment.user.username }}</h3>
+        <span>{{ comment.created }}</span>
+      </div>
+      <p>{{ comment.content }}</p>
+      <br /><br />
+      <hr />
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="add-reples-box">
+    <form method="POST">
+      {% csrf_token %}
+
+      <div class="add-reples">
+        <input type="text" placeholder="댓글을 작성해주세요." name="comment" class="add-reples-textbox" />
+        <input type="submit" value="등록" name="submit" class="button" />
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock %} {% block extra-script %} {% endblock %}

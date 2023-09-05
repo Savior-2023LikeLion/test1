@@ -88,6 +88,17 @@ p {
     margin-right: 15px;
 }
 
+.hd-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hd-username {
+    color: #412e27;
+    margin-bottom: 10px;
+    margin-right: 3px;
+}
+
 .page-title {
     margin: 0 3vw;
     font-size: 4vh;
@@ -290,4 +301,56 @@ p {
 #comment-title {
     margin: 0;
     font-size: 20px;
+}
+
+/* 로그아웃 버튼*/
+
+.btn_logout {
+    margin: 0 auto;
+}
+
+.btn_logout > a {
+    display: flex;
+    justify-content: center;
+}
+
+#btn {
+    width: 50%;
+    height: 40px;
+
+    text-align: center;
+    border: none;
+    background-color: rgba(150, 158, 108, 1);
+    color: #fff;
+    border-radius: 25px;
+    font-size: 2vh;
+    font-family: "Judson";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn a {
+    color: #fff;
+}
+
+/* 비로그인 상태 section */
+#logout {
+    margin-top: 30vh;
+    text-align: center;
+}
+
+/*로그아웃 상태에서 로그인 버튼*/
+#login_btn {
+    width: 50%;
+    height: 5vh;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1vh 2vh;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 25px;
+    background-color: #7f6044;
+    border: none;
+    margin-top: 5vh;
 }

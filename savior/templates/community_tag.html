@@ -1,33 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        img {width: 100px; height: 100px;}
-    </style>
-</head>
-<body>
-    <a href="{% url 'savior:community' %}">뒤로가기</a><br>
-    <a href="{% url 'savior:mypage' %}">마이페이지</a><br><br>
+{% extends 'base.html' %} {% load static %} {% block title %}자유게시판{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/community.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>자유게시판</p>
+  </div>
+</div>
 
-    <h2>#{{ tag_name }}</h2>
-    게시물 {{ posts.count }}<br><br><br>
+<section class="sec">
+  <div class="choice">
+    <div id="country-name" class="country" style="color: #fff">#<span id="tag_name">{{ tag_name }}</span></div>
+    <div id="country-posts" class="country" style="color: #fff">
+      <span>게시물 수: {{ posts.count }}</span>
+    </div>
+  </div>
 
-    {% for post in posts %}
-        <a href="{% url 'savior:community_detail' post.pk %}">{{post.title}}</a><br>
-        {{ post.user.username }}<br>
-        <!-- {% for tag in post.tags.all %}
-            #{{ tag.name }}
-            {% endfor %}<br> -->
+  {% for post in posts %}
+  <div class="list">
+    <div class="box">
+      <div class="writebox">
+        <p>
+          <a href="{% url 'savior:community_detail' post.pk %}">{{post.title}}</a>
+        </p>
+        <div class="list_user">
+          <div class="heart">
+            <img src="{% static 'image/icon/heart-outline.svg' %}" />
+            <span>{{ post.like_users.count }}</span>
+          </div>
+          <span>{{ post.user.username }}</span>
+        </div>
+      </div>
+      <div class="picbox">
         {% if post.thumbnail %}
-            <img src="{{post.thumbnail.url}}" alt="">
-        {% endif %}<br>
-        좋아요 개수: {{ post.like_users.count }}
-        <br><br>
-    {% empty %}
-        <p>검색된 게시물이 없습니다</p>
-    {% endfor %}
-</body>
-</html>
+        <img src="{{post.thumbnail.url}}" alt="" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %} {% block extra-script %}
+<script>
+  const value = document.querySelector("#tag_name").innerHTML;
+  const country_name = document.querySelector("#country-name");
+  const country_posts = document.querySelector("#country-posts");
+
+  console.log(value);
+  if (value == "일본") {
+    country_name.style.backgroundColor = "#7F6044";
+    country_posts.style.backgroundColor = "#7F6044";
+  } else if (value == "미국") {
+    country_name.style.backgroundColor = "#CCB89D";
+    country_posts.style.backgroundColor = "#CCB89D";
+  } else if (value == "베트남") {
+    country_name.style.backgroundColor = "#CD9047";
+    country_posts.style.backgroundColor = "#CD9047";
+  } else {
+    console.log("x");
+  }
+</script>
+{% endblock %}

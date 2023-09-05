@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savoir : {% block title %}Intro{% endblock %}</title>
+    {% load static %} {% block extra-style %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/intro.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% block content %}
+    <div class="container">
+      <div class="background"></div>
+      <div class="slide slide_wrap">
+        <div class="close_button">
+          <a href="{% url 'savior:map' %}">
+            <img src="{% static 'image/icon/close_black.png' %}" alt="."
+          /></a>
+        </div>
+
+        <div class="slide_item item1">
+          <img src="{% static 'image/intro/intro1.png' %}" alt="." />
+        </div>
+
+        <div class="slide_item item2">
+          <img src="{% static 'image/intro/intro2.png' %}" alt="." />
+        </div>
+
+        <div class="slide_item item3">
+          <img src="{% static 'image/intro/intro3.png' %}" alt="." />
+        </div>
+
+        <div class="slide_prev_button slide_button">
+          <img src="{% static 'image/icon/left-chevron.png' %}" alt="img" />
+        </div>
+
+        <div class="slide_next_button slide_button">
+          <img src="{% static 'image/icon/chevron.png'%}" alt="img" />
+        </div>
+
+        <ul class="slide_pagination"></ul>
+      </div>
+    </div>
+    {% endblock %}
+    <script src="{% static 'js/intro.js' %}"></script>
+  </body>
+</html>

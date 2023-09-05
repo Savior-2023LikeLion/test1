@@ -1,240 +1,255 @@
 /* initial */
 @media (hover: hover) {
-  html {
-    width: 430px;
-    margin: 0 auto;
-  }
+    html {
+        width: 430px;
+        margin: 0 auto;
+    }
 }
 
 a:link,
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /* 스크롤바 제거 */
 .items::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .container {
-  position: relative;
-  height: 100%;
-  margin: 0 auto;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
 }
 
 .background {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../image/background.png");
-  z-index: -1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/background.png");
+    z-index: -1;
 }
 
 @media (max-width: 430px) {
-  .background {
-    background-size: contain;
-  }
+    .background {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .background {
-    width: 430px;
-  }
+    .background {
+        width: 430px;
+    }
 }
 
 body {
-  margin: 0;
-  font-family: "Judson";
-  overflow-x: hidden;
+    margin: 0;
+    font-family: "Judson";
+    overflow-x: hidden;
 }
 
 hr {
-  border: 1px solid black;
-  margin-bottom: 5%;
+    border: 1px solid black;
+    margin-bottom: 5%;
 }
 
 /* background */
 .background {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../image/background.png");
-  z-index: -1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/background.png");
+    z-index: -1;
 }
 
 @media (max-width: 430px) {
-  .background {
-    background-size: contain;
-  }
+    .background {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .background {
-    width: 430px;
-  }
+    .background {
+        width: 430px;
+    }
 }
 
 /* header */
 .hd {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 58px;
-  background-image: url("../image/background.png");
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 58px;
+    background-image: url("../image/background.png");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media (hover: hover) {
-  .hd {
-    width: 430px;
-  }
+    .hd {
+        width: 430px;
+    }
 }
 
 .hd-back img {
-  margin-left: 15px;
+    margin-left: 15px;
 }
 
 .hd-logo img {
-  width: 100px;
+    width: 100px;
 }
 
 .hd-profile img {
-  height: 35px;
-  margin-top: 4px;
-  margin-right: 15px;
+    height: 35px;
+    margin-top: 4px;
+    margin-right: 15px;
+}
+
+.hd-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hd-username {
+    color: #412e27;
+    margin-bottom: 10px;
+    margin-right: 3px;
 }
 
 .page-title {
-  margin: 0 3vw;
-  font-size: 4vh;
+    margin: 0 3vw;
+    font-size: 4vh;
 }
 
 /* navigation */
 .nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 66px;
-  background-image: url("../image/background.png");
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 66px;
+    background-image: url("../image/background.png");
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 @media (max-width: 430px) {
-  .nav {
-    background-size: contain;
-  }
+    .nav {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .nav {
-    width: 430px;
-  }
+    .nav {
+        width: 430px;
+    }
 }
 
 .nav img {
-  height: 50px;
+    height: 50px;
 }
 
 /* section */
 .sec {
-  height: calc(100vh - 58px - 66px - 104px);
-  overflow-y: scroll;
+    height: calc(100vh - 58px - 66px - 104px);
+    overflow-y: scroll;
 }
 
 .sec::-webkit-scrollbar {
-  width: 12px; /* 스크롤바의 너비 */
+    width: 12px; /* 스크롤바의 너비 */
 }
 
 .sec::-webkit-scrollbar-thumb {
-  height: 30%; /* 스크롤바의 길이 */
-  background: #7f6044; /* 스크롤바의 색상 */
-  border-radius: 10px;
+    height: 30%; /* 스크롤바의 길이 */
+    background: #7f6044; /* 스크롤바의 색상 */
+    border-radius: 10px;
 }
 
 .sec::-webkit-scrollbar-track {
-  background: #ccb89d; /*스크롤바 뒷 배경 색상*/
-  border-radius: 10px;
+    background: #ccb89d; /*스크롤바 뒷 배경 색상*/
+    border-radius: 10px;
 }
 
 /* inform */
 .inform {
-  margin: 0 20px;
-  margin-top: 58px;
+    margin: 0 20px;
+    margin-top: 58px;
 }
 
 .title {
-  border-bottom: 2.5px solid black;
+    border-bottom: 2.5px solid black;
 }
 
 .title p {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .tag {
-  width: 110px;
-  height: 35px;
-  background-color: #ede1d1;
-  border: 1px solid black;
-  border-radius: 20px;
-  margin-top: 15px;
+    width: 110px;
+    height: 35px;
+    background-color: #ede1d1;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-top: 15px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .search {
-  display: flex;
-  justify-content: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .search input {
-  width: 60%;
-  padding-left: 10px;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  outline: none;
-  border: none;
+    width: 60%;
+    padding-left: 10px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    outline: none;
+    border: none;
 }
 
 .search button {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background: white;
-  border: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background: white;
+    border: none;
 }
 
 .items {
-  padding: 0 10% 35% 10%;
-  height: 50vh;
-  /* overflow: scroll; */
-  font-size: 2.5vh;
-  font-weight: 800;
-  margin-bottom: 100px;
+    padding: 0 10% 60% 10%;
+    height: 50vh;
+    /* overflow: scroll; */
+    font-size: 2.5vh;
+    font-weight: 800;
+    margin-bottom: 100px;
 }
 
 .items a {
-  color: black;
-  text-decoration: none;
+    color: black;
+    text-decoration: none;
+}
+
+.items a img {
+    width: 100%;
 }
 
 .items a:link,
 .items a:visited {
-  color: black;
-  text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 
 .items-shirts,
@@ -242,39 +257,39 @@ hr {
 .items-cap,
 .items-onepiece,
 .items-shoes {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .item-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .add-button a {
-  display: flex;
-  text-decoration: none;
-  color: white;
-  font-size: 30px;
-  font-weight: 700;
+    display: flex;
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
 }
 
 .add-button {
-  justify-content: center;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  display: flex;
-  height: 50px;
-  width: 50px;
-  border: none;
-  background-color: rgba(151, 97, 78, 1);
-  border-radius: 100px;
+    justify-content: center;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: rgba(151, 97, 78, 1);
+    border-radius: 100px;
 }
 
 @media (hover: hover) {
-  .add-button {
-    right: calc(50vw - 215px + 20px);
-  }
+    .add-button {
+        right: calc(50vw - 215px + 20px);
+    }
 }

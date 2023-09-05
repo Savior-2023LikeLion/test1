@@ -1,29 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="{% url 'savior:community' %}">뒤로가기</a><br>
-    <a href="{% url 'savior:mypage' %}">마이페이지</a><br><br>
-    
-    <form action="{% url 'savior:community_post' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-            <label for="title">제목</label>
-            <input type="text" name="title"><br><br>
-    
-            <label for="content">내용</label>
-            <textarea name="content" id="" cols="30" rows="10"></textarea><br><br>
-            
-            <label>사진 첨부</label>
-            <input name="thumbnail" type="file"><br><br>
+{% extends 'base.html' %} {% load static %} {% block title %}게시글 작성{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/community_post.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:community' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
+<div class="inform">
+  <div class="title">
+    <p>새 글 작성</p>
+  </div>
+</div>
 
-            <label for="id_tags">해시태그</label>
-            <input id="id_tags" name="tags" type="text" placeholder="쉼표(,)로 구분하여 여러 태그 입력">
+<section class="sec">
+  <form action="{% url 'savior:community_post' %}" method="POST" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" id="page-title" name="title" placeholder="글 제목을 입력해주세요" />
+    <input id="country-tags" name="tags" type="text" placeholder=" 국가 태그를 입력해주세요 (ex. 일본 / 일본,미국)" />
+    <hr />
+    <textarea name="content" id="page-textarea" cols="30" rows="13" placeholder="글 내용을 입력해주세요"></textarea>
+    <div class="filebox">
+      <label for="file">
+        <div class="file-upload">첨부 파일</div>
+      </label>
+      <input type="file" name="thumbnail" id="file" accept="image" />
+      <!-- <span> | </span> -->
+      <!-- <button id="cancelButton">취소</button> -->
+    </div>
+    <div class="submit">
+      <input type="submit" class="submit-button" />
+    </div>
+  </form>
+</section>
 
-            <input type="submit" value="등록">
-        </form>
-</body>
-</html>
+{% endblock %} {% block extra-script %}
+<script src="{% static 'js/community_post.js' %}"></script>
+{% endblock %}

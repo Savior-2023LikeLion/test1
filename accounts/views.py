@@ -49,7 +49,7 @@ def signup_view(request):
             # 회원가입 처리
             instance = form.save()
             print(form.errors)
-            return redirect('savior:main')
+            return redirect('savior:map')
         
         else:
             # 리다이렉트
@@ -68,7 +68,7 @@ def login_view(request):
         if form.is_valid():
             # 비즈니스 로직 처리 - 로그인 처리
             login(request, form.user_cache)
-            return redirect('savior:main')
+            return redirect('savior:map')
         else:
             # 비즈니스 로직 처리 - 로그인 실패 (false)
             # form = AuthenticationForm(request.POST)
@@ -81,7 +81,7 @@ def logout_view(request):
     # 비즈니스 로직 처리 - 로그아웃
         logout(request)
     # 응답 (main 화면으로 이동)
-    return redirect('savior:main')
+    return redirect('savior:map')
 
 #* 카카오
 # 로그인 페이지 주소

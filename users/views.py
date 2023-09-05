@@ -132,11 +132,11 @@ def kakao_login_callback(request):
 
 
         login(request, user)    # 로그인 처리
-        return redirect(reverse('savior:main'))
+        return redirect(reverse('savior:map'))
     except KakaoException as error:
         messages.error(request, error)
-        return redirect(reverse('savior:main'))
+        return redirect(reverse('savior:map'))
     except SocialLoginException as error:
         messages.error(request, error)
-        return redirect(reverse('savior:main'))
+        return redirect(reverse('savior:map'))
     

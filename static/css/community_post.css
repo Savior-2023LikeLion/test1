@@ -1,270 +1,282 @@
 @media (hover: hover) {
-  html {
-    width: 430px;
-    margin: 0 auto;
-  }
+    html {
+        width: 430px;
+        margin: 0 auto;
+    }
 }
 
 /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
 body::-webkit-scrollbar,
 .items::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 body {
-  margin: 0;
-  font-family: "Judson";
-  overflow: auto;
+    margin: 0;
+    font-family: "Judson";
+    overflow: auto;
 }
 
 hr {
-  border: 1px solid black;
-  margin-bottom: 5%;
+    border: 1px solid black;
+    margin-bottom: 5%;
 }
 
 .inform {
-  margin: 0 20px;
-  margin-top: 58px;
+    margin: 0 20px;
+    margin-top: 58px;
 }
 
 .title {
-  border-bottom: 2.5px solid black;
+    border-bottom: 2.5px solid black;
 }
 
 .title p {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  padding: 0 5% 0% 5%;
-  margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5% 0% 5%;
+    margin-top: 10px;
 }
 
 #page-title {
-  font-size: 3vh;
-  background: none;
-  border: none;
-  outline: none;
-  font-family: "Judson";
-  margin-bottom: 15px;
+    font-size: 3vh;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: "Judson";
+    margin-bottom: 15px;
 }
 
 #country-tags {
-  margin-top: 3%;
-  font-size: 2vh;
-  background: none;
-  border: none;
-  outline: none;
+    margin-top: 3%;
+    font-size: 2vh;
+    background: none;
+    border: none;
+    outline: none;
 }
 
 #page-textarea {
-  font-size: 3vh;
-  background: none;
-  border: none;
-  resize: none;
-  box-sizing: border-box;
-  height: 80%;
-  outline: none;
-  font-family: "Judson";
+    font-size: 3vh;
+    background: none;
+    border: none;
+    resize: none;
+    box-sizing: border-box;
+    height: 80%;
+    outline: none;
+    font-family: "Judson";
 }
 
 .filebox {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 #file {
-  display: none;
-  padding-right: 10px;
+    display: none;
+    padding-right: 10px;
 }
 
 .filebox button {
-  background: none;
-  border: none;
-  font-size: 16px;
+    background: none;
+    border: none;
+    font-size: 16px;
 }
 
 .submit {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20%;
 }
 
 .submit-button {
-  border: none;
-  width: 50%;
-  height: 40px;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: rgba(150, 158, 108, 1);
-  font-size: 2vh;
+    border: none;
+    width: 50%;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(150, 158, 108, 1);
+    font-size: 2vh;
 }
 
 .nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 66px;
-  background-image: url("../images//background/background.png");
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 66px;
+    background-image: url("../images//background/background.png");
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 @media (max-width: 430px) {
-  .nav {
-    background-size: contain;
-  }
+    .nav {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .nav {
-    width: 430px;
-  }
+    .nav {
+        width: 430px;
+    }
 }
 
 .nav img {
-  height: 50px;
+    height: 50px;
 }
 
 /* initial */
 @media (hover: hover) {
-  html {
-    width: 430px;
-    margin: 0 auto;
-  }
+    html {
+        width: 430px;
+        margin: 0 auto;
+    }
 }
 
 img {
-  width: auto;
-  height: 100%;
+    width: auto;
+    height: 100%;
 }
 
 .container {
-  position: relative;
-  height: 100%;
-  margin: 0 auto;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
 }
 
 a:link,
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
 /* background */
 .background {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../image/background.png");
-  z-index: -1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/background.png");
+    z-index: -1;
 }
 
 @media (max-width: 430px) {
-  .background {
-    background-size: contain;
-  }
+    .background {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .background {
-    width: 430px;
-  }
+    .background {
+        width: 430px;
+    }
 }
 
 /* header */
 .hd {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 58px;
-  background-image: url("../image/background.png");
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 58px;
+    background-image: url("../image/background.png");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media (hover: hover) {
-  .hd {
-    width: 430px;
-  }
+    .hd {
+        width: 430px;
+    }
 }
 
 .hd-back img {
-  margin-left: 15px;
+    margin-left: 15px;
 }
 
 .hd-logo img {
-  width: 100px;
+    width: 100px;
 }
 
 .hd-profile img {
-  height: 35px;
-  margin-top: 4px;
-  margin-right: 15px;
+    height: 35px;
+    margin-top: 4px;
+    margin-right: 15px;
+}
+
+.hd-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hd-username {
+    color: #412e27;
+    margin-bottom: 10px;
+    margin-right: 3px;
 }
 
 /* navigation */
 .nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 66px;
-  background-image: url("../image/background.png");
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 66px;
+    background-image: url("../image/background.png");
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 @media (max-width: 430px) {
-  .nav {
-    background-size: contain;
-  }
+    .nav {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .nav {
-    width: 430px;
-  }
+    .nav {
+        width: 430px;
+    }
 }
 
 .nav img {
-  height: 50px;
+    height: 50px;
 }
 
 /* section */
 .sec {
-  height: calc(100vh - 58px - 66px - 53px);
-  overflow-y: visible;
+    height: calc(100vh - 58px - 66px - 53px);
+    overflow-y: visible;
 }
 
 .sec::-webkit-scrollbar {
-  width: 12px; /* 스크롤바의 너비 */
+    width: 12px; /* 스크롤바의 너비 */
 }
 
 .sec::-webkit-scrollbar-thumb {
-  height: 30%; /* 스크롤바의 길이 */
-  background: #7f6044; /* 스크롤바의 색상 */
-  border-radius: 10px;
+    height: 30%; /* 스크롤바의 길이 */
+    background: #7f6044; /* 스크롤바의 색상 */
+    border-radius: 10px;
 }
 
 .sec::-webkit-scrollbar-track {
-  background: #ccb89d; /*스크롤바 뒷 배경 색상*/
-  border-radius: 10px;
+    background: #ccb89d; /*스크롤바 뒷 배경 색상*/
+    border-radius: 10px;
 }

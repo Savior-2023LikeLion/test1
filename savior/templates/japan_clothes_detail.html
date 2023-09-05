@@ -20,7 +20,7 @@
     <div class="content">
       <!-- 품목 사진 -->
       <div class="img">
-        <img src="{% static 'image/price/clothes/cap.png' %}" />
+        <img src="{% static 'image/price/detail.png' %}" />
       </div>
       <div class="text-box">
         <div class="text">
@@ -72,7 +72,7 @@
                 <!-- 내용 -->
                 <p>{{comment.content }}</p>
                 <!-- 날짜 -->
-                <p style="font-size: 10px">23.08.12</p>
+                <p style="font-size: 10px">{{ comment.created|date:'Y.m.d' }}</p>
               </div>
               <div class="list-content-price">
                 <p>{{ comment.number }}</p>
@@ -86,10 +86,12 @@
       </div>
     </div>
   </div>
+  {% if request.user.is_authenticated %}
   <!-- 시세 입력 버튼 -->
   <button id="modal_btn" type="button">
     <img src="{% static 'image/icon/plus.svg' %}" />
   </button>
+  {% endif %}
   <!-- 모달창 -->
   <div class="modal_background"></div>
   <div class="modal_wrap">

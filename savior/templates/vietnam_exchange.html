@@ -1,44 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Savoir : 환율 계산</title>
-        <link rel="stylesheet" href="{% static 'css/exchange.css' %}" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Judson&display=swap"
-            rel="stylesheet"
-        />
-        {% block content %}
-    </head>
-    <body>
-        <div class="container">
-            <div class="background"></div>
-            <header class="hd">
-                <div class="hd-back">
-                    <img
-                        src="{% static 'image/nav/back.svg' %}"
-                        style="height: 30px"
-                        onclick="goBack()"
-                    />
-                </div>
-                <div class="hd-logo">
-                    <img src="{% static 'image/savior.png' %}./" />
-                </div>
-                <div class="hd-profile">
-                    <a href="">
-                        <img src="{% static 'image/nav/user_color.png' %}"
-                    /></a>
-                </div>
-            </header>
+{% extends 'base.html' %} {% load static %} {% block title %}환율 계산{%endblock %} {% block extra-style %}
+<link rel="stylesheet" href="{% static 'css/exchange.css' %}" />
+{% endblock %} {% block back %}
+<a href="{% url 'savior:vietnam' %}"><img src="{% static 'image/nav/back.svg' %}" style="height: 30px" /></a>
+{% endblock %} {% block content %}
 
             <div class="inform">
                 <div class="title">
-                  <p>Exchange Rate</p>
+                    <p>Exchange Rate</p>
                 </div>
             </div>
 
@@ -49,13 +17,13 @@
                         {% csrf_token %}
                         <!-- changeCountry -->
                         <select name="country" id="input-dropdown">
-                            <option  disabled value="">나라 선택</option>
+                            <option  disabled value="">국가 선택</option>
                             <option  value="japan">Japan</option>
-                            <option value="USA">America</option>
+                            <option value="USA">USA</option>
                             <option  selected value="vietnam">Vietnam</option>
                             
                         </select>
-                        <input type="submit" value="선택" />
+                        <input type="submit" value="선택" id="choose-btn" style="opacity: 1.0;"/>
                     </form>
                                                                 
                 </div>
@@ -63,21 +31,20 @@
                 <form action="{% url 'savior:vietnam_exchange' %}" method="post">
                     {% csrf_token %}
                     <div class="content">
-
-
-                        
                         <div id="visit-country"> 
                             <div id="input">
                                 <p id="krw">VND</p>
                                 <div id="result-main">
                                     
-                                    <h2>{{VND}}<img src="{% static 'image/icon/dong.png' %}" alt="dong" id="unit-icon"></h2>
+                                    <h2>{{VND}}
+                                        <div id="unit-icon"><img src="{% static 'image/icon/dong.png' %}" alt="dong"></div>
+                                        </h2>
 
     <input
     type="number"
     placeholder="동"
     name="VND"
-    class="exchange-input"
+    class="exchange-input" min="0"
 />
 
                                 </div>
@@ -123,28 +90,18 @@
 
             </section>
 
-            <navigation class="nav">
-                <a href="{% url 'savior:exchange' %}"
-                    ><img src="{% static 'image/nav/money.svg' %}"
-                /></a>
-                <a href="#"><img src="{% static 'image/nav/eat.png' %}" /></a>
-                <a href="#"
-                    ><img
-                        src="{% static 'image/nav/pin_color.png' %}"
-                        style="height: 45px"
-                /></a>
-                <a href="{% url 'savior:pricelist' %}"
-                    ><img src="{% static 'image/nav/tag_color.png' %}"
-                /></a>
-                <a href="{% url 'savior:community' %}"
-                    ><img src="{% static 'image/nav/edit-message.png' %}"
-                /></a>
-            </navigation>
-        </div>
-        <script src="{% static 'js/exchange.js' %}"></script>
-        <script src="{% static 'js/go-back.js' %}"></script>
-        <script src="{% static 'js/go-back-nonclick.js' %}"></script>
-
-        {% endblock %} 
-    </body>
-</html>
+            {% endblock %} {% block extra-script %}
+            <script>
+            let changeimg = document.getElementById("input-dropdown");
+            let myImg = document.getElementById("unit-icon");
+            
+            function changeImage() {
+                let index = changeimg.selectedIndex;
+                myImg.src = changeimg.options[index].value;
+            }
+            
+            changeImage();
+            changeimg.onchange = changeImage;
+            
+            </script>
+            {% endblock %}

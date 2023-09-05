@@ -20,9 +20,17 @@ from crawling_Vietnam import main_function_vietnam  # crawling.py 파일의 main
 from crawling_Japan import main_function_japan
 import math
 
+#인트로 맵 페이지
+def intro(request):
+    return render(request, "intro.html")
+
 #임시용 메인페이지
-def main(request):
-    return render(request, "main.html")
+# def main(request):
+#     return render(request, "main.html")
+
+#메인 맵 페이지
+def map(request):
+    return render(request, "map.html")
 
 #nav바 시세 선택 페이지
 def pricelist(request):
@@ -34,7 +42,7 @@ def pricelist(request):
             return redirect('savior:USA_pricelist')
         else:
             return redirect('savior:vietnam_pricelist')
-    return render(request, 'japan_pricelist.html')
+    return render(request, 'pricelist.html')
 
 def usa_pricelist(request):
     return render(request, 'USA_pricelist.html')
@@ -44,6 +52,11 @@ def japan_pricelist(request):
 
 def vietnam_pricelist(request):
     return render(request, 'vietnam_pricelist.html')
+
+#nav바 환율 선택 페이지
+# def exchange(request):
+#     return render(request, 'exchange.html')
+
 
 #일본 상세페이지
 def japan(request):
@@ -200,7 +213,7 @@ def exchange(request):
             return redirect('savior:USA_exchange')
         else:
             return redirect('savior:vietnam_exchange')
-    return render(request, 'japan_exchange.html')
+    return render(request, 'exchange.html')
 
 def get_exchange_rate1():
     headers = {
@@ -543,8 +556,7 @@ def mypage(request):
 
 #커뮤니티
 def community(request):
-    if not request.user.is_authenticated:
-        return redirect("savior:accounts:login")
+
     posts = Post.objects.all()
     context = {"posts": posts}
     return render(request, "community.html", context)
@@ -700,3 +712,15 @@ def Vietnam_restaurant(request):
         # return render(request, 'recommend_restaurant.html', context)
 
     return render(request, 'Vietnam_restaurant_list.html')
+
+#nav바 recommend 선택 페이지
+def recommend(request):
+    if request.method == 'POST':
+        country = request.POST.get('country')
+        if country=='japan':
+            return redirect('savior:recommend_japan')
+        elif country=='USA':
+            return redirect('savior:recommend_USA')
+        else:
+            return redirect('savior:recommend_vietnam')
+    return render(request, 'recommend.html')

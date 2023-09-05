@@ -1,455 +1,466 @@
 /* ( 크롬, 사파리, 오페라, 엣지 ) 동작 */
 body::-webkit-scrollbar,
 .items::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 /* initial */
 @media (hover: hover) {
-  html {
-    width: 430px;
-    margin: 0 auto;
-  }
+    html {
+        width: 430px;
+        margin: 0 auto;
+    }
 }
 
 img {
-  width: auto;
-  height: 100%;
+    width: auto;
+    height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: "Judson";
-  overflow-x: hidden;
+    margin: 0;
+    font-family: "Judson";
+    overflow-x: hidden;
 }
 
 .container {
-  position: relative;
-  height: 100%;
-  margin: 0 auto;
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
 }
 
 a:link,
 a:visited {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
 /* background */
 .background {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../image/background.png");
-  z-index: -1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/background.png");
+    z-index: -1;
 }
 
 @media (max-width: 430px) {
-  .background {
-    background-size: contain;
-  }
+    .background {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .background {
-    width: 430px;
-  }
+    .background {
+        width: 430px;
+    }
 }
 
 /* header */
 .hd {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 58px;
-  background-image: url("../image/background.png");
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 58px;
+    background-image: url("../image/background.png");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media (hover: hover) {
-  .hd {
-    width: 430px;
-  }
+    .hd {
+        width: 430px;
+    }
 }
 
 .hd-back img {
-  margin-left: 15px;
+    margin-left: 15px;
 }
 
 .hd-logo img {
-  width: 100px;
+    width: 100px;
 }
 
 .hd-profile img {
-  height: 35px;
-  margin-top: 4px;
-  margin-right: 15px;
+    height: 35px;
+    margin-top: 4px;
+    margin-right: 15px;
+}
+
+.hd-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hd-username {
+    color: #412e27;
+    margin-bottom: 10px;
+    margin-right: 3px;
 }
 
 /* navigation */
 .nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 66px;
-  background-image: url("../image/background.png");
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 66px;
+    background-image: url("../image/background.png");
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 @media (max-width: 430px) {
-  .nav {
-    background-size: contain;
-  }
+    .nav {
+        background-size: contain;
+    }
 }
 
 @media (hover: hover) {
-  .nav {
-    width: 430px;
-  }
+    .nav {
+        width: 430px;
+    }
 }
 
 .nav img {
-  height: 50px;
+    height: 50px;
 }
 
 /* section */
 .sec {
-  height: calc(100vh - 58px - 66px - 104px);
-  overflow-y: scroll;
+    height: calc(100vh - 58px - 66px - 104px);
+    overflow-y: scroll;
 }
 
 .sec::-webkit-scrollbar {
-  width: 12px; /* 스크롤바의 너비 */
+    width: 12px; /* 스크롤바의 너비 */
 }
 
 .sec::-webkit-scrollbar-thumb {
-  height: 30%; /* 스크롤바의 길이 */
-  background: #7f6044; /* 스크롤바의 색상 */
-  border-radius: 10px;
+    height: 30%; /* 스크롤바의 길이 */
+    background: #7f6044; /* 스크롤바의 색상 */
+    border-radius: 10px;
 }
 
 .sec::-webkit-scrollbar-track {
-  background: #ccb89d; /*스크롤바 뒷 배경 색상*/
-  border-radius: 10px;
+    background: #ccb89d; /*스크롤바 뒷 배경 색상*/
+    border-radius: 10px;
 }
 
 /* inform */
 .inform {
-  margin: 0 20px;
-  margin-top: 58px;
+    margin: 0 20px;
+    margin-top: 58px;
 }
 
 .title {
-  border-bottom: 2.5px solid black;
+    border-bottom: 2.5px solid black;
 }
 
 .title p {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .tag {
-  width: 110px;
-  height: 35px;
-  background-color: #ede1d1;
-  border: 1px solid black;
-  border-radius: 20px;
-  margin-top: 15px;
+    width: 110px;
+    height: 35px;
+    background-color: #ede1d1;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-top: 15px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 /* content */
 .content-total {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .content {
-  width: 85%;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    width: 85%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .img img {
-  width: 100%;
+    width: 100%;
 }
 
 /* text */
 .text-box {
-  width: 100%;
-  min-height: 500px;
-  background-color: #ccb89d;
-  border-radius: 15px;
+    width: 100%;
+    min-height: 500px;
+    background-color: #ccb89d;
+    border-radius: 15px;
 
-  margin-top: -20%;
+    margin-top: -20%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 .text {
-  width: 85%;
+    width: 85%;
 }
 
 .thing-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  margin-top: 20px;
-  font-size: 22px;
-  font-weight: bold;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
 
-  border-bottom: 1.8px solid black;
+    border-bottom: 1.8px solid black;
 }
 
 .thing-title p {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .average-maxmin {
-  display: flex;
+    display: flex;
 
-  margin-top: 12px;
+    margin-top: 12px;
 }
 
 .average {
-  width: 140px;
-  height: 100px;
-  background-color: #ede1d1;
-  border-radius: 15px;
+    width: 140px;
+    height: 100px;
+    background-color: #ede1d1;
+    border-radius: 15px;
 
-  margin-left: 12px;
+    margin-left: 12px;
 }
 
 .averge-title {
-  font-size: 15px;
+    font-size: 15px;
 
-  margin: 7px 0 0 10px;
+    margin: 7px 0 0 10px;
 }
 
 .averge-price {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 .maxmin {
-  width: 160px;
+    width: 160px;
 
-  margin: 0 15px;
+    margin: 0 15px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .max,
 .min {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 
-  color: #7f6044;
-  font-size: 22px;
-  margin-left: 10px;
+    color: #7f6044;
+    font-size: 22px;
+    margin-left: 10px;
 }
 
 .max p,
 .min p {
-  margin-left: 12px;
+    margin-left: 12px;
 }
 
 .maxmin hr {
-  margin: 6px 0 6px 12px;
-  border: 1px solid #a88b68;
+    margin: 6px 0 6px 12px;
+    border: 1px solid #a88b68;
 }
 
 .list {
-  margin-top: 12px;
-  border-top: 1px solid #7f6044;
+    margin-top: 12px;
+    border-top: 1px solid #7f6044;
 }
 
 .list-price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  font-size: 13px;
+    font-size: 13px;
 
-  margin-top: 8px;
-  padding: 0 5px 8px 5px;
-  border-bottom: 1px solid #7f6044;
+    margin-top: 8px;
+    padding: 0 5px 8px 5px;
+    border-bottom: 1px solid #7f6044;
 }
 
 .list-content-price {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 /* button */
 button#modal_btn {
-  background-color: #97614e;
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  padding: 0;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
+    background-color: #97614e;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
 }
 
 #modal_btn img {
-  width: 45px;
+    width: 45px;
 }
 
 @media (hover: hover) {
-  button#modal_btn {
-    right: calc(50vw - 215px + 20px);
-  }
+    button#modal_btn {
+        right: calc(50vw - 215px + 20px);
+    }
 }
 
 .modal_wrap {
-  border-radius: 10px;
-  width: 90%;
-  height: 380px;
-  /*모달창 가운데 배치*/
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -190px 0 0 -45%;
-  display: none;
-  z-index: 2;
-  background-color: #fff;
-  text-align: center;
+    border-radius: 10px;
+    width: 90%;
+    height: 380px;
+    /*모달창 가운데 배치*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -190px 0 0 -45%;
+    display: none;
+    z-index: 2;
+    background-color: #fff;
+    text-align: center;
 }
 
 .modal_wrap.show-modal {
-  display: block;
+    display: block;
 }
 
 .modal_background.show-modal {
-  display: block;
+    display: block;
 }
 
 .modal_background {
-  position: absolute;
-  width: 100%;
-  height: calc(100% + 58px);
-  background-color: rgba(217, 217, 217, 0.5);
-  top: -58px;
-  left: 0;
-  z-index: 1;
-  display: none;
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 58px);
+    background-color: rgba(217, 217, 217, 0.5);
+    top: -58px;
+    left: 0;
+    z-index: 1;
+    display: none;
 }
 
 .modal_close {
-  position: absolute;
-  width: 100%;
-  top: 5px;
-  box-sizing: border-box;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: end;
-  cursor: pointer;
+    position: absolute;
+    width: 100%;
+    top: 5px;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
 }
 
 .modal_close img {
-  height: 20px;
+    height: 20px;
 }
 
 .modal_text {
-  position: absolute;
-  top: 75px;
+    position: absolute;
+    top: 75px;
 
-  width: 100%;
+    width: 100%;
 }
 
 .modal_price_box {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .modal_price {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  width: 120px;
-  height: 45px;
-  background-color: #ede1d1;
-  border-radius: 15px;
-  font-size: 26px;
-  font-weight: bold;
+    width: 120px;
+    height: 45px;
+    background-color: #ede1d1;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: bold;
 
-  padding: 0 20px;
+    padding: 0 20px;
 }
 
 .modal_price input[type="text"] {
-  width: 90px;
-  font-family: "Judson";
-  font-size: 26px;
-  font-weight: bold;
-  vertical-align: top;
-  text-align: left;
-  border: none;
-  background-color: #ede1d1;
-  outline: none;
+    width: 90px;
+    font-family: "Judson";
+    font-size: 26px;
+    font-weight: bold;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    background-color: #ede1d1;
+    outline: none;
 }
 
 textarea {
-  width: 80%;
-  height: 100px;
-  resize: none;
-  font-family: "Judson";
-  font-size: 18px;
-  padding: 20px;
-  vertical-align: top;
-  text-align: left;
-  border: none;
-  background-color: #ede1d1;
-  border-radius: 15px;
-  outline: none;
-  overflow: scroll;
+    width: 80%;
+    height: 100px;
+    resize: none;
+    font-family: "Judson";
+    font-size: 18px;
+    padding: 20px;
+    vertical-align: top;
+    text-align: left;
+    border: none;
+    background-color: #ede1d1;
+    border-radius: 15px;
+    outline: none;
+    overflow: scroll;
 
-  margin: 15px 0;
+    margin: 15px 0;
 }
 
 input[type="submit"] {
-  width: 200px;
-  height: 45px;
-  font-family: "Judson";
-  font-size: 20px;
-  font-weight: bold;
-  border: none;
-  border-radius: 25px;
-  background-color: #ccb89d;
+    width: 200px;
+    height: 45px;
+    font-family: "Judson";
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    background-color: #ccb89d;
 
-  margin-top: 10px;
+    margin-top: 10px;
 }
